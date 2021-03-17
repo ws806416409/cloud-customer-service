@@ -6,6 +6,8 @@ import com.igeekhome.biz.ICustomerServiceService;
 import com.igeekhome.pojo.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
@@ -49,8 +51,21 @@ public class CustomerServiceController {
             path = "page-login";
         }
         return path;
-
+    }
+    @GetMapping("/registry")
+    public String Registry(){
+        return "page-register";
     }
 
+    /**
+     * 向数据库中写入注册的信息
+     * @param cs 表单提交的信息封装为CustomerService
+     * @return  返回登陆界面
+     */
+    @PostMapping("/registry")
+    public String AdminRegistry(CustomerService cs){
+        iCustomerServiceService.save(cs);
+        return "redirect:/login";
+    }
 }
 
