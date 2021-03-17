@@ -8,6 +8,8 @@ import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * <p>
  * 客服表
@@ -25,6 +27,7 @@ public class CustomerService implements Serializable {
     /**
      * 密码
      */
+    @NotBlank
     private String password;
 
     /**
@@ -38,11 +41,13 @@ public class CustomerService implements Serializable {
     @TableField("headImg")
     private String headimg;
 
+    @NotBlank
     private String email;
 
     /**
      * 头像
      */
+    @NotBlank
     @TableField("nickName")
     private String nickname;
 
