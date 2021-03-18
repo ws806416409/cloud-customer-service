@@ -20,7 +20,7 @@ public class IndexController {
         return "index";
     }
     //退出
-    @RequestMapping("exit")
+    @RequestMapping("/exit")
     public String exit(HttpSession session)
     {
         //退出：就是删除 登录时存储的session对象

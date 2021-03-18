@@ -1,7 +1,10 @@
 package com.igeekhome.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.Query;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.injector.methods.UpdateById;
 import com.igeekhome.biz.ICustomerInfoService;
 import com.igeekhome.biz.ICustomerServiceService;
 import com.igeekhome.pojo.CustomerService;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -65,7 +69,7 @@ public class CustomerServiceController {
         }
         return path;
     }
-    @GetMapping("/registry")
+    @GetMapping("/register")
     public String Registry(){
         return "page-register";
     }
@@ -75,7 +79,7 @@ public class CustomerServiceController {
      * @param cs 表单提交的信息封装为CustomerService
      * @return  返回登陆界面
      */
-    @PostMapping("/registry")
+    @PostMapping("/register")
     public String AdminRegistry(CustomerService cs, HttpSession session, Model model) {
         //校验失败，返回注册界面，前端接收失败信息，进行提示。
         if(cs.getPassword() != "" && cs.getEmail() != "" && cs.getNickname() != ""){
@@ -90,11 +94,25 @@ public class CustomerServiceController {
         log.info("注册失败了");
         return "page-register";
     }
-    //修改个人信息
-    @GetMapping("modify")
-    public String modify(){
+    @GetMapping("/info")
+    public String GetProfile(){
+        //个人资料界面
 
-        return "modify-infomation";
+        return "settings/customer-service-information-set";
     }
+
+    @PostMapping("/update")
+    public String UpdateProfile(Model model, CustomerService cs, @RequestParam Integer csid){
+        if(cs.getPassword()!="" && cs.getEmail()!=""&&cs.getRealname()!=""){
+            //System.out.println("cs:" + cs);
+            UpdateWrapper<CustomerService> up = new UpdateWrapper<>();
+            up.eq("customerserviceid",csid);
+            this.iCustomerServiceService.update(cs,up);
+            return "redirect:/index";
+        }
+        model.addAttribute("msg","更新的信息不能为空");
+        return "redirect:/customerService/info";
+    }
+
 }
 

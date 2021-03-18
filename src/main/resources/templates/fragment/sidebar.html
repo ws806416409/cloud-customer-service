@@ -6,7 +6,7 @@
         <div class="nano-content">
             <ul>
                 <li class="label">Main</li>
-                <li class="active"><a class="sidebar-sub-toggle" href="/index"><i class="ti-home"></i> 控制台
+                <li class="active"><a class="sidebar-sub-toggle" href="/index"><i class="ti-home"></i> 控制台</a>
                 </li>
                 <li class="label">School</li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Management <span class="badge badge-primary">28</span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
@@ -67,13 +67,12 @@
                         <li><a href="chart-knob.html">Knob</a></li>
                     </ul>
                 </li>
-                <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
                 <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
                 <li><a href="app-profile.html"><i class="ti-user"></i> Profile</a></li>
                 <li class="label">Features</li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-layout-grid4-alt"></i> Table <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                <li><a class="sidebar-sub-toggle"><i class="ti-layout-grid4-alt"></i> 工单管理 <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="table-basic.html">Basic</a></li>
+                        <li><a href="order-list-page.html" th:href="@{/workOrder/index}">工单列表</a></li>
                         <li><a href="table-data.html">Datatable</a></li>
                         <li><a href="table-export.html">Datatable Export</a></li>
                         <li><a href="table-row-select.html" th:href="@{/customerInfo/screen}">Datatable Row Select</a></li>
@@ -85,7 +84,7 @@
                     <ul>
                         <li><a href="/index">客服管理首页</a></li>
                         <li><a href="/customerService/register">注册</a></li>
-                        <li><a href="/customerService/mokedify">修改信息</a></li>
+                        <li><a href="/customerService/modify">修改信息</a></li>
                     </ul>
                 </li>
                 <li><a href="/exit"><i class="ti-close"></i> 退出</a></li>

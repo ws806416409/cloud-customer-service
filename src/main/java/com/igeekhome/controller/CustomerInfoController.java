@@ -1,7 +1,11 @@
 package com.igeekhome.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.igeekhome.pojo.CustomerInfo;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
@@ -17,11 +21,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 @RequestMapping("/customerInfo")
 public class CustomerInfoController {
-
-    @GetMapping("/screen")
-    public String screen(){
-        return "tables/table-row-select";
-    }
 
 }
 

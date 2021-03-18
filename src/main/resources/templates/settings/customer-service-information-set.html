@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/head.html::head(~{::title})">
+  <title>Account Setting</title>
+</head>
+
+  <body class="sidebar-hide pace-done">
+    <div class="pace pace-inactive">
+      <div
+        class="pace-progress"
+        data-progress-text="100%"
+        data-progress="99"
+        style="transform: translate3d(100%, 0px, 0px)"
+      >
+        <div class="pace-progress-inner"></div>
+      </div>
+      <div class="pace-activity"></div>
+    </div>
+    <div class="pace pace-inactive">
+      <div
+        class="pace-progress"
+        data-progress-text="100%"
+        data-progress="99"
+        style="transform: translate3d(100%, 0px, 0px)"
+      >
+        <div class="pace-progress-inner"></div>
+      </div>
+      <div class="pace-activity"></div>
+    </div>
+    <div class="pace pace-inactive">
+      <div
+        class="pace-progress"
+        data-progress-text="100%"
+        data-progress="99"
+        style="transform: translate3d(100%, 0px, 0px)"
+      >
+        <div class="pace-progress-inner"></div>
+      </div>
+      <div class="pace-activity"></div>
+    </div>
+    <div class="pace pace-inactive">
+      <div
+        class="pace-progress"
+        data-progress-text="100%"
+        data-progress="99"
+        style="transform: translate3d(100%, 0px, 0px)"
+      >
+        <div class="pace-progress-inner"></div>
+      </div>
+      <div class="pace-activity"></div>
+    </div>
+    <div th:replace="fragment/sidebar.html::sidebar"></div>
+
+    <div th:replace="fragment/header.html::header"></div>
+
+    <div class="content-wrap">
+      <div class="main">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-8 p-r-0 title-margin-right">
+              <div class="page-header">
+                <div class="page-title">
+                  <h1>云客服后台管理系统</h1>
+                </div>
+              </div>
+            </div>
+            <!-- /# column -->
+            <div class="col-lg-4 p-l-0 title-margin-left">
+              <div class="page-header">
+                <div class="page-title">
+                  <ol class="breadcrumb text-right">
+                    <li><a href="#">首页</a></li>
+                    <li class="active">客服信息修改</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <!-- /# column -->
+          </div>
+          <!-- /# row -->
+          <section id="main-content">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="card alert">
+                  <div class="card-header pr">
+                    <h4>修改信息</h4>
+                    <div class="card-header-right-icon">
+                      <ul>
+                        <li class="card-close" data-dismiss="alert">
+                          <i class="ti-close"></i>
+                        </li>
+                        <li class="card-option drop-menu">
+                          <i
+                            class="ti-settings"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="true"
+                            role="link"
+                          ></i>
+                          <ul class="card-option-dropdown dropdown-menu">
+                            <li>
+                              <a href="#"
+                                ><i class="ti-loop"></i> Update data</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#"
+                                ><i class="ti-menu-alt"></i> Detail log</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#"
+                                ><i class="ti-pulse"></i> Statistics</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#"
+                                ><i class="ti-power-off"></i> Clear ist</a
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="doc-link">
+                          <a href="#"><i class="ti-link"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <form th:action="@{/customerService/update(csid=${session.cs.getCustomerserviceid()})}" method="post">
+                    <div class="basic-form m-t-20">
+                      <div class="form-group">
+                        <label>客服名</label>
+                        <input
+                          type="text"
+                          name="nickname"
+                          class="form-control border-none input-flat bg-ash"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="basic-form m-t-20">
+                      <div class="form-group">
+                        <label>真实姓名</label>
+                        <input
+                          type="text"
+                          name="realname"
+                          class="form-control border-none input-flat bg-ash"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="basic-form m-t-20">
+                      <div class="form-group">
+                        <label>电话</label>
+                        <input
+                          type="text"
+                          name="customerservicephone"
+                          class="form-control border-none input-flat bg-ash"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="basic-form m-t-20">
+                      <div class="form-group">
+                        <label>email</label>
+                        <input
+                          type="text"
+                          name="email"
+                          class="form-control border-none input-flat bg-ash"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="basic-form m-t-20">
+                      <div class="form-group">
+                        <label>所在组</label>
+                        <input
+                          type="text"
+                          name="servicegroup"
+                          class="form-control border-none input-flat bg-ash"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                    <div class="basic-form m-t-20">
+                      <div class="form-group">
+                        <label>密码</label>
+                        <input
+                          type="text"
+                          name="password"
+                          class="form-control border-none input-flat bg-ash"
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+<!--                    以后添加功能-->
+                    <!--<div class="basic-form m-t-20">
+                      <div class="form-group">
+                        头像更改
+                        <input
+                          type="file"
+                          class="btn btn-default btn-default m-b-10 bg-warning m-t-30 border-none m-r-5 sbmt-btn"
+                          name="headImg"
+                          id="exampleInputFile"
+                        />
+                      </div>
+                    </div>-->
+                    <button
+                            class="btn btn-default btn-default m-b-10 bg-warning m-t-30 border-none m-r-5 sbmt-btn"
+                            type="submit"
+                    >
+                      提交
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div class="col-lg-9">
+                <div class="card alert">
+                  <div class="card-header">
+                    <h4>客服信息</h4>
+                    <div class="card-header-right-icon">
+                      <ul>
+                        <li class="card-close" data-dismiss="alert">
+                          <i class="ti-close"></i>
+                        </li>
+                        <li class="card-option drop-menu">
+                          <i
+                            class="ti-settings"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="true"
+                            role="link"
+                          ></i>
+                          <ul class="card-option-dropdown dropdown-menu">
+                            <li>
+                              <a href="#"
+                                ><i class="ti-loop"></i> Update data</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#"
+                                ><i class="ti-menu-alt"></i> Detail log</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#"
+                                ><i class="ti-pulse"></i> Statistics</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#"
+                                ><i class="ti-power-off"></i> Clear ist</a
+                              >
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="doc-link">
+                          <a href="#"><i class="ti-link"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="user-profile m-t-15">
+                      <div class="row">
+                        <div class="col-lg-3">
+                          <div class="user-photo m-b-10">
+                            <img
+                              class="img-responsive"
+                              src="assets/images/user-profile.jpg"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                        <div class="col-lg-8">
+                          <div class="user-profile-name">客服名</div>
+                          <div class="custom-tab user-profile-tab">
+                            <ul class="nav nav-tabs" role="tablist">
+                              <li role="presentation" class="active">
+                                <a
+                                  href="#1"
+                                  aria-controls="1"
+                                  role="tab"
+                                  data-toggle="tab"
+                                  >About</a
+                                >
+                              </li>
+                            </ul>
+                            <div class="tab-content">
+                              <div
+                                role="tabpanel"
+                                class="tab-pane active"
+                                id="1"
+                              >
+                                <div class="contact-information">
+                                  <div class="phone-content">
+                                    <span class="contact-title">客服名:</span>
+                                    <span class="phone-number" th:text="${session.cs.getNickname()}"
+                                      >`customerName`</span
+                                    >
+                                  </div>
+                                  <div class="website-content">
+                                    <span class="contact-title">真实姓名:</span>
+                                    <span class="contact-website" th:text="${session.cs.getRealname()}"
+                                      >`realName`</span
+                                    >
+                                  </div>
+                                  <div class="address-content">
+                                    <span class="contact-title">电话:</span>
+                                    <span class="mail-address" th:text="${session.cs.getCustomerservicephone()}">`phone`</span>
+                                  </div>
+                                  <div class="gender-content">
+                                    <span class="contact-title">email:</span>
+                                    <span class="gender" th:text="${session.cs.getEmail()}">`email`</span>
+                                  </div>
+                                  <div class="phone-content">
+                                    <span class="contact-title">会话次数:</span>
+                                    <span class="phone-number" th:text="${session.cs.getSessioncount()}"
+                                      >`sessionCount`(不能更改)</span
+                                    >
+                                  </div>
+                                  <div class="phone-content">
+                                    <span class="contact-title">信息次数:</span>
+                                    <span class="phone-number" th:text="${session.cs.getMsgcount()}"
+                                      >`msgCount`(不能更改)</span
+                                    >
+                                  </div>
+                                  <div class="birthday-content">
+                                    <span class="contact-title">所在组:</span>
+                                    <span class="birth-date" th:text="${session.cs.getServicegroup()}"
+                                      >`serviceGroup`</span
+                                    >
+                                  </div>
+                                  <div class="address-content">
+                                    <span class="contact-title">密码:</span>
+                                    <span class="mail-address" th:text="${session.cs.getPassword()}">`remark`</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /# column -->
+            </div>
+            <!-- /# row -->
+
+            <div class="row"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div id="search">
+      <button type="button" class="close">×</button>
+      <form>
+        <input type="search" value="" placeholder="type keyword(s) here" />
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+    <!-- jquery vendor -->
+    <script src="assets/js/lib/jquery.min.js"></script>
+    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+    <!-- nano scroller -->
+    <script src="assets/js/lib/menubar/sidebar.js"></script>
+    <script src="assets/js/lib/preloader/pace.min.js"></script>
+    <!-- sidebar -->
+    <script src="assets/js/lib/bootstrap.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/js/lib/calendar-2/moment.latest.min.js"></script>
+    <!-- scripit init-->
+    <script src="assets/js/lib/calendar-2/semantic.ui.min.js"></script>
+    <!-- scripit init-->
+    <script src="assets/js/lib/calendar-2/prism.min.js"></script>
+    <!-- scripit init-->
+    <script src="assets/js/lib/calendar-2/pignose.calendar.min.js"></script>
+    <!-- scripit init-->
+    <script src="assets/js/lib/calendar-2/pignose.init.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <!-- scripit init-->
+
+    <div class="pignose-calendar-wrapper-overlay" style="display: none"></div>
+    <div
+      class="pignose-calendar-wrapper"
+      style="display: none; margin-left: -180px; margin-top: -210px"
+    >
+      <div
+        class="pignose-calendar pignose-calendar-light pignose-calendar-default"
+      >
+        <div class="pignose-calendar-top">
+          <a
+            href="#"
+            class="pignose-calendar-top-nav pignose-calendar-top-prev"
+          >
+            <span class="icon-arrow-left pignose-calendar-top-icon"></span>
+          </a>
+          <div class="pignose-calendar-top-date">
+            <span class="pignose-calendar-top-month">March</span>
+            <span class="pignose-calendar-top-year">2021</span>
+          </div>
+          <a
+            href="#"
+            class="pignose-calendar-top-nav pignose-calendar-top-next"
+          >
+            <span class="icon-arrow-right pignose-calendar-top-icon"></span>
+          </a>
+        </div>
+        <div class="pignose-calendar-header">
+          <div class="pignose-calendar-week pignose-calendar-week-sun">SUN</div>
+          <div class="pignose-calendar-week pignose-calendar-week-mon">MON</div>
+          <div class="pignose-calendar-week pignose-calendar-week-tue">TUE</div>
+          <div class="pignose-calendar-week pignose-calendar-week-wed">WED</div>
+          <div class="pignose-calendar-week pignose-calendar-week-thu">THU</div>
+          <div class="pignose-calendar-week pignose-calendar-week-fri">FRI</div>
+          <div class="pignose-calendar-week pignose-calendar-week-sat">SAT</div>
+        </div>
+        <div class="pignose-calendar-body">
+          <div class="pignose-calendar-row">
+            <div class="pignose-calendar-unit pignose-calendar-unit-sun"></div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon"
+              data-date="2021-03-01"
+            >
+              <a href="#">1</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue"
+              data-date="2021-03-02"
+            >
+              <a href="#">2</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed"
+              data-date="2021-03-03"
+            >
+              <a href="#">3</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu"
+              data-date="2021-03-04"
+            >
+              <a href="#">4</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri"
+              data-date="2021-03-05"
+            >
+              <a href="#">5</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sat"
+              data-date="2021-03-06"
+            >
+              <a href="#">6</a>
+            </div>
+          </div>
+          <div class="pignose-calendar-row">
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sun"
+              data-date="2021-03-07"
+            >
+              <a href="#">7</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon"
+              data-date="2021-03-08"
+            >
+              <a href="#">8</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue"
+              data-date="2021-03-09"
+            >
+              <a href="#">9</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed"
+              data-date="2021-03-10"
+            >
+              <a href="#">10</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu"
+              data-date="2021-03-11"
+            >
+              <a href="#">11</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri"
+              data-date="2021-03-12"
+            >
+              <a href="#">12</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sat"
+              data-date="2021-03-13"
+            >
+              <a href="#">13</a>
+            </div>
+          </div>
+          <div class="pignose-calendar-row">
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sun"
+              data-date="2021-03-14"
+            >
+              <a href="#">14</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon"
+              data-date="2021-03-15"
+            >
+              <a href="#">15</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue"
+              data-date="2021-03-16"
+            >
+              <a href="#">16</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed"
+              data-date="2021-03-17"
+            >
+              <a href="#">17</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu pignose-calendar-unit-active pignose-calendar-unit-first-active"
+              data-date="2021-03-18"
+            >
+              <a href="#">18</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri"
+              data-date="2021-03-19"
+            >
+              <a href="#">19</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sat"
+              data-date="2021-03-20"
+            >
+              <a href="#">20</a>
+            </div>
+          </div>
+          <div class="pignose-calendar-row">
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sun"
+              data-date="2021-03-21"
+            >
+              <a href="#">21</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon"
+              data-date="2021-03-22"
+            >
+              <a href="#">22</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue"
+              data-date="2021-03-23"
+            >
+              <a href="#">23</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed"
+              data-date="2021-03-24"
+            >
+              <a href="#">24</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-thu"
+              data-date="2021-03-25"
+            >
+              <a href="#">25</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-fri"
+              data-date="2021-03-26"
+            >
+              <a href="#">26</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sat"
+              data-date="2021-03-27"
+            >
+              <a href="#">27</a>
+            </div>
+          </div>
+          <div class="pignose-calendar-row">
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-sun"
+              data-date="2021-03-28"
+            >
+              <a href="#">28</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-mon"
+              data-date="2021-03-29"
+            >
+              <a href="#">29</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-tue"
+              data-date="2021-03-30"
+            >
+              <a href="#">30</a>
+            </div>
+            <div
+              class="pignose-calendar-unit pignose-calendar-unit-date pignose-calendar-unit-wed"
+              data-date="2021-03-31"
+            >
+              <a href="#">31</a>
+            </div>
+            <div class="pignose-calendar-unit pignose-calendar-unit-thu"></div>
+            <div class="pignose-calendar-unit pignose-calendar-unit-fri"></div>
+            <div class="pignose-calendar-unit pignose-calendar-unit-sat"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
