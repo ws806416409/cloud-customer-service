@@ -2,6 +2,7 @@ package com.igeekhome.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.igeekhome.biz.ICustomerInfoService;
 import com.igeekhome.biz.ICustomerServiceService;
 import com.igeekhome.pojo.CustomerService;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +34,9 @@ public class CustomerServiceController {
     @Autowired
     private ICustomerServiceService iCustomerServiceService;
 
+    @Autowired
+    private ICustomerInfoService iCustomerInfoService;
+
     @RequestMapping("/login")
     public String checkCustomerServiceNameAndPwd(CustomerService customerService, Model model, HttpSession session)
     {
@@ -45,12 +49,17 @@ public class CustomerServiceController {
         CustomerService cs=  iCustomerServiceService.getOne(qu);
         if(cs!=null)
         {
+            //客户数量
+            session.setAttribute("customerCount",this.iCustomerInfoService.count());
+            //客服数量
+            session.setAttribute("csCount", this.iCustomerServiceService.count());
+
             session.setAttribute("cs", cs);
-            //找到了eｍai
+            //在数据库匹配到了邮箱和密码信息 跳转到主页
             path = "redirect:/index";
         }
         else {
-            // 没有找到email
+            // 校验失败 返回登陆界面
             model.addAttribute("msg","用户名密码不正确");
             path = "page-login";
         }
@@ -61,21 +70,6 @@ public class CustomerServiceController {
         return "page-register";
     }
 
-    /*@PostMapping("/registry")
-    public String AdminRegistry(@Valid CustomerService cs, BindingResult bindingResult, HttpSession session, Model model) {
-        //校验失败，返回注册界面，前端接收失败信息，进行提示。
-        if(cs.getPassword() == ""){
-            System.out.println("为空");
-        }
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("registry_msg", "注册失败");
-            return "forward:/registry";
-        }
-        //注册成功向表中写入数据
-        iCustomerServiceService.save(cs);
-        session.setAttribute("registry_msg", "注册成功");
-        return "redirect:/login";
-    }*/
     /**
      * 向数据库中写入注册的信息
      * @param cs 表单提交的信息封装为CustomerService
@@ -95,6 +89,12 @@ public class CustomerServiceController {
         model.addAttribute("registry_msg", "注册失败");
         log.info("注册失败了");
         return "page-register";
+    }
+    //修改个人信息
+    @GetMapping("modify")
+    public String modify(){
+
+        return "modify-infomation";
     }
 }
 

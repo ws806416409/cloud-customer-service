@@ -1,6 +1,7 @@
 package com.igeekhome.controller;
 
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,11 @@ import org.springframework.stereotype.Controller;
 @Controller
 @RequestMapping("/customerInfo")
 public class CustomerInfoController {
+
+    @GetMapping("/screen")
+    public String screen(){
+        return "tables/table-row-select";
+    }
 
 }
 

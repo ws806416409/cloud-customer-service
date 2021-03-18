@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div  th:fragment="sidebar" class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <ul>
+                <li class="label">Main</li>
+                <li class="active"><a class="sidebar-sub-toggle" href="/index"><i class="ti-home"></i> 控制台
+                </li>
+                <li class="label">School</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>Management <span class="badge badge-primary">28</span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="school-student.html">Student</a></li>
+                        <li><a href="school-student-profile.html">Student Profile</a></li>
+                        <li><a href="school-student-details.html">Student Detail</a></li>
+                        <li><a href="school-hostel-room.html">Hostel</a></li>
+                        <li><a href="school-all-student-table.html">Students Table</a></li>
+                        <li><a href="school-student-search.html">search</a></li>
+                        <li><a href="school-teacher-information.html">Teacher Info</a></li>
+                        <li><a href="school-student-profile.html">Teacher Details</a></li>
+                        <li><a href="school-all-teacher-table.html">Teacher Table</a></li>
+                        <li><a href="school-class-information.html">Class Info</a></li>
+                        <li><a href="school-subject.html">Subject</a></li>
+                        <li><a href="school-class-routine.html">Routine</a></li>
+                        <li><a href="school-attendace-sheet.html">Attendance</a></li>
+                        <li><a href="school-grade-list.html">Exam Result</a></li>
+                        <li><a href="school-new-exam.html">Exam Schedule</a></li>
+                        <li><a href="school-account-setting.html">Setting</a></li>
+                        <li><a href="school-student-fees-collection.html">Collection Fees</a></li>
+                        <li><a href="school-payment-information.html">Payment info</a></li>
+                        <li><a href="school-add-new-expenses.html">New Expense</a></li>
+                        <li><a href="school-all-expense-list.html">Expense</a></li>
+                        <li><a href="school-attendace-sheet.html">Attendance</a></li>
+                        <li><a href="school-book-information.html">Book Info</a></li>
+                        <li><a href="school-book-list.html">Book List</a></li>
+                        <li><a href="school-all-parents-list.html">Parents List</a></li>
+                        <li><a href="school-parents.html">Parents</a></li>
+                        <li><a href="school-form.html">Form</a></li>
+                        <li><a href="school-notice.html">Notice</a></li>
+                        <li><a href="school-transport.html">Transport</a></li>
+                    </ul>
+                </li>
+
+                <li class="label">Restaurant</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-cup"></i> Restaurant<span class="badge badge-primary">7</span> <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="restaurant-menu-one.html">Menu One</a></li>
+                        <li><a href="restaurant-menu-two.html">Menu Two</a></li>
+                        <li><a href="restaurant-menu-three.html">Menu Three</a></li>
+                        <li><a href="restaurant-favourite-list.html">Favourite</a></li>
+                        <li><a href="restaurant-order-list.html">Order List</a></li>
+                        <li><a href="restaurant-booking.html">Booking</a></li>
+                        <li><a href="restaurant-upload-menu.html">Upload Menu</a></li>
+                    </ul>
+                </li>
+
+                <li class="label">Apps</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i>  Charts  <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="chart-flot.html">Flot</a></li>
+                        <li><a href="chart-morris.html">Morris</a></li>
+                        <li><a href="chartjs.html">Chartjs</a></li>
+                        <li><a href="chartist.html">Chartist</a></li>
+                        <li><a href="chart-peity.html">Peity</a></li>
+                        <li><a href="chart-sparkline.html">Sparkle</a></li>
+                        <li><a href="chart-knob.html">Knob</a></li>
+                    </ul>
+                </li>
+                <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
+                <li><a href="app-email.html"><i class="ti-email"></i> Email</a></li>
+                <li><a href="app-profile.html"><i class="ti-user"></i> Profile</a></li>
+                <li class="label">Features</li>
+                <li><a class="sidebar-sub-toggle"><i class="ti-layout-grid4-alt"></i> Table <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="table-basic.html">Basic</a></li>
+                        <li><a href="table-data.html">Datatable</a></li>
+                        <li><a href="table-export.html">Datatable Export</a></li>
+                        <li><a href="table-row-select.html" th:href="@{/customerInfo/screen}">Datatable Row Select</a></li>
+                        <li><a href="table-edit.html" th:href="@{/customerInfo/edit}">Edit table</a></li>
+                    </ul>
+                </li>
+
+                <li><a class="sidebar-sub-toggle"><i class="ti-target"></i> 客服管理 <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href="/index">客服管理首页</a></li>
+                        <li><a href="/customerService/register">注册</a></li>
+                        <li><a href="/customerService/mokedify">修改信息</a></li>
+                    </ul>
+                </li>
+                <li><a href="/exit"><i class="ti-close"></i> 退出</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /# sidebar -->

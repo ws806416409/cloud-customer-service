@@ -19,4 +19,12 @@ public class IndexController {
     public String main(HttpSession session){
         return "index";
     }
+    //退出
+    @RequestMapping("exit")
+    public String exit(HttpSession session)
+    {
+        //退出：就是删除 登录时存储的session对象
+        session.removeAttribute(("cs"));
+        return "page-login";
+    }
 }
