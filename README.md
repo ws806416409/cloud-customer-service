@@ -13,23 +13,24 @@
 - [niu-xiaoqing](https://github.com/niu-xiaoqing)
 - [sunwarm](https://github.com/sunwarm2001)
 - [lxht](https://github.com/lxht)
+- [KyrieIring](https://github.com/KyrieIring12138)
 
-## 技术栈
-
-
-
-## 需求
+## 技术栈 | Technology stack
 
 
 
-## 功能
+## 需求 | Demand
 
 
 
-## 分工
+## 功能 | Features
 
 
 
-## 使用教程
+## 成员分工 | Assignments
+
+
+
+## 使用教程 | Tutorials
 
 
