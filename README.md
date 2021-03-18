@@ -5,7 +5,9 @@
 
 ## 人员 | Contributors
 组长：
-- (lemon)[https://github.com/ws806416409]
+- [lemon](https://github.com/ws806416409)
+
+
 组员：
-- (Zranshi)[https://github.com/Zranshi]
+- [Zranshi](https://github.com/Zranshi)
 
