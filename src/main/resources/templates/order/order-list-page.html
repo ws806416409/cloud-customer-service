@@ -36,7 +36,57 @@
           <!-- /# row -->
           <section id="main-content">
             <div class="row">
-              <div class="col-lg-12">
+              <div class="col-md-2">
+                <div class="card alert">
+                  <div class="card-header pr">
+                    <h4>增加新订单</h4>
+                  </div>
+                  <form th:action="@{/workOrder/add}" method="post">
+                    <div class="basic-form m-t-20">
+                      <div class="form-group">
+                        <label>客户Id</label>
+                        <input type="text" class="form-control border-none input-flat bg-ash"
+                               placeholder="" name="customerid">
+                      </div>
+                    </div>
+                    <div class="basic-form">
+                      <div class="form-group">
+                        <label>类型</label>
+                        <select class="form-control bg-ash border-none" name="worktype">
+                          <option></option>
+                          <option>分类一</option>
+                          <option>分类二</option>
+                          <option>分类三</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="basic-form m-t-20">
+                      <div class="form-group">
+                        <label>订单标题</label>
+                        <input type="text" class="form-control border-none input-flat bg-ash"
+                               placeholder="" name="title">
+                      </div>
+                    </div>
+                    <div class="basic-form m-t-20">
+                      <div class="form-group">
+                        <label>客服Id</label>
+                        <input type="text" class="form-control border-none input-flat bg-ash"
+                               placeholder="" name="customerserviceid">
+                      </div>
+                    </div>
+                    <div class="basic-form">
+                      <label>订单描述</label>
+                      <textarea class="form-control bg-ash" name="orderdesc" id="" cols="37"
+                                rows="3"></textarea>
+                    </div>
+                    <button
+                            class="btn btn-default btn-lg m-b-10 bg-warning border-none m-r-5 m-t-30 sbmt-btn"
+                            type="submit">提交
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div class="col-lg-10">
                 <div class="card alert">
                   <div class="card-header">
                     <h4>订单管理</h4>
@@ -60,10 +110,10 @@
                         <thead>
                           <tr>
                             <th>工单Id</th>
-                            <th>工单类型</th>
+                            <th>工单标题</th>
+                            <th>工单类别</th>
                             <th>客户Id</th>
                             <th>客服Id</th>
-                            <th>标题</th>
                             <th>优先级</th>
                             <th>创建时间</th>
                             <th>更新时间</th>
@@ -83,12 +133,12 @@
                             <td th:text="${order.updatetime}">`updateTime`</td>
                             <td>
                               <span
-                                ><a href=""
+                                ><a href="" th:href="@{/workOrder/findById(id=${order.id})}"
                                   ><i class="ti-eye color-default"></i
                                 ></a>
                               </span>
                               <span
-                                ><a href=""
+                                ><a href="" th:href="@{/workOrder/update(id=${order.id})}"
                                   ><i
                                     class="ti-pencil-alt color-success"
                                   ></i></a
