@@ -32,9 +32,6 @@ public class CustomerInfoController {
     @Autowired
     CustomerInfoServiceImpl customerInfoService;
 
-
-
-
     /**
      * 展示客户列表
      * */
