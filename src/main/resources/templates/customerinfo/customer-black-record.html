@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/head.html::head(~{::title})">
+    <title>拉黑记录</title>
+</head>
+
+<body class="pace-done sidebar-hide">
+<div class="pace pace-inactive">
+    <div
+            class="pace-progress"
+            data-progress-text="100%"
+            data-progress="99"
+            style="transform: translate3d(100%, 0px, 0px)">
+        <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+</div>
+<div class="pace pace-inactive">
+    <div
+            class="pace-progress"
+            data-progress-text="100%"
+            data-progress="99"
+            style="transform: translate3d(100%, 0px, 0px)"
+    >
+        <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+</div>
+<div th:replace="fragment/sidebar.html::sidebar"></div>
+<div th:replace="fragment/header.html::header"></div>
+
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>云客服后台管理系统</h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+                <div class="col-lg-4 p-l-0 title-margin-left">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a href="#">首页</a></li>
+                                <li class="active">客户详细信息</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+            </div>
+            <!-- /# row -->
+            <section id="main-content">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card alert">
+                            <div class="card-header pr">
+                                <h4>客户信息</h4>
+                                <div class="card-header-right-icon">
+                                    <ul>
+                                        <li class="card-close" data-dismiss="alert">
+                                            <i class="ti-close"></i>
+                                        </li>
+                                        <li class="card-option drop-menu">
+                                            <i
+                                                    class="ti-settings"
+                                                    data-toggle="dropdown"
+                                                    aria-haspopup="true"
+                                                    aria-expanded="true"
+                                                    role="link"
+                                            ></i>
+                                            <ul class="card-option-dropdown dropdown-menu">
+                                                <li>
+                                                    <a href="#"
+                                                    ><i class="ti-loop"></i> Update data</a
+                                                    >
+                                                </li>
+                                                <li>
+                                                    <a href="#"
+                                                    ><i class="ti-menu-alt"></i> Detail log</a
+                                                    >
+                                                </li>
+                                                <li>
+                                                    <a href="#"
+                                                    ><i class="ti-pulse"></i> Statistics</a
+                                                    >
+                                                </li>
+                                                <li>
+                                                    <a href="#"
+                                                    ><i class="ti-power-off"></i> Clear ist</a
+                                                    >
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="doc-link">
+                                            <a href="#"><i class="ti-link"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <br>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <label>客户名：</label>
+                                        <textarea
+                                                disabled
+                                                class=" well well-sm"
+                                                rows="1"
+                                                style="width: 100%; resize: none"
+                                                th:text="${csInfo.getCustomername()}"
+                                        >客户名</textarea>
+                                    </li>
+                                    <li>
+                                        <label>真实姓名：</label>
+                                        <textarea
+                                                disabled
+                                                class=" well well-sm"
+                                                rows="1"
+                                                style="width: 100%; resize: none"
+                                                th:text="${csInfo.getRealname()}"
+                                        >真实姓名</textarea>
+                                    </li>
+                                    <li>
+                                        <label>地址：</label>
+                                        <textarea
+                                                disabled
+                                                class=" well well-sm"
+                                                rows="2"
+                                                style="width: 100%; resize: none"
+                                                th:text="${csInfo.getAddress()}"
+                                        >'地址'</textarea>
+                                    </li>
+                                    <li>
+                                        <label>电话：</label>
+                                        <textarea
+                                                disabled
+                                                class=" well well-sm"
+                                                rows="1"
+                                                style="width: 100%; resize: none"
+                                                th:text="${csInfo.getPhone()}"
+                                        >电话</textarea>
+                                    </li>
+                                    <li>
+                                        <label>email：</label>
+                                        <textarea
+                                                disabled
+                                                class=" well well-sm"
+                                                rows="1"
+                                                style="width: 100%; resize: none"
+                                                th:text="${csInfo.getEmail()}"
+                                        >email</textarea>
+                                    </li>
+                                    <li>
+                                        <label>客服id：</label>
+                                        <textarea
+                                                disabled
+                                                class=" well well-sm"
+                                                rows="1"
+                                                style="width: 100%; resize: none"
+                                                th:text="${csInfo.getCustomerserviceid()}"
+                                        >客服id</textarea>
+                                    </li>
+                                    <li>
+                                        <label>公司：</label>
+                                        <textarea
+                                                disabled
+                                                class=" well well-sm"
+                                                rows="1"
+                                                style="width: 100%; resize: none"
+                                                th:text="${csInfo.getCompany()}"
+                                        >公司</textarea>
+                                    </li>
+                                    <li>
+                                        <label>途径：</label>
+                                        <textarea
+                                                disabled
+                                                class=" well well-sm"
+                                                rows="1"
+                                                style="width: 100%; resize: none"
+                                                th:text="${csInfo.getChannel()}"
+                                        >途径</textarea>
+                                    </li>
+                                    <li>
+                                        <label>级别：</label>
+                                        <textarea
+                                                disabled
+                                                class=" well well-sm"
+                                                rows="1"
+                                                style="width: 100%; resize: none"
+                                                th:text="${csInfo.getLevel()}"
+                                        >级别</textarea>
+                                    </li>
+                                    <li>
+                                        <label>标注：</label>
+                                        <textarea
+                                                disabled
+                                                class=" well well-sm"
+                                                rows="1"
+                                                style="width: 100%; resize: none"
+                                                th:text="${csInfo.getRemark()}"
+                                        >标注</textarea>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="card alert">
+                            <div class="page-header pr">
+                                <div class="page-title">
+                                    <h1 th:text="${csInfo.getRealname()}">(这里是用户姓名)</h1>
+                                    <ul class="nav nav-tabs">
+                                        <li role="presentation" class="active"><a th:href="@{/customerInfo/details(id=${csInfo.id})}">历史会话</a></li>
+                                        <li role="presentation" class="active"><a th:href="@{/customerInfo/workorder(id=${csInfo.id})}">历史工单</a></li>
+                                        <li role="presentation" class="active"><a th:href="@{/customerInfo/blackrecord(id=${csInfo.id})}">拉黑记录</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">拉黑记录</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="bootstrap-data-table-panel">
+                                        <div class="table-responsive">
+                                            <table id="row-select" class="display table table-borderd table-hover">
+                                                <thead>
+                                                <tr>
+                                                    <th style="text-align: center">记录Id</th>
+                                                    <th style="text-align: center">时间</th>
+                                                    <th style="text-align: center">理由</th>
+                                                    <th style="text-align: center">拉黑来源</th>
+                                                    <th style="text-align: center">客服名</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr th:each="x, rowInfo : ${list}">
+                                                    <td style="text-align: center" th:text="${x.getId()}">Tiger Nixon</td>
+                                                    <td style="text-align: center" th:text="${x.getTime()}">System Architect</td>
+                                                    <td style="text-align: center" th:text="${x.getReason()}">Edinburgh</td>
+                                                    <td style="text-align: center" th:text="${x.getSource()}">61</td>
+                                                    <td style="text-align: center" th:text="${nickName[rowInfo.count]}">2011/04/25</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--  /# column -->
+                </div>
+                <!-- /# row -->
+
+                <div class="row"></div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div id="search">
+    <button type="button" class="close">×</button>
+    <form>
+        <input type="search" value="" placeholder="type keyword(s) here"/>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+<!-- jquery vendor -->
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="assets/js/lib/menubar/sidebar.js"></script>
+<script src="assets/js/lib/preloader/pace.min.js"></script>
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<script src="assets/js/lib/calendar-2/moment.latest.min.js"></script>
+<script src="assets/js/lib/calendar-2/semantic.ui.min.js"></script>
+<script src="assets/js/lib/calendar-2/prism.min.js"></script>
+<script src="assets/js/lib/calendar-2/pignose.calendar.min.js"></script>
+<script src="assets/js/lib/calendar-2/pignose.init.js"></script>
+<script src="assets/js/scripts.js"></script>
+<script src="assets/js/lib/data-table/datatables.min.js"></script>
+<script src="assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+<script src="assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+<script src="assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+<script src="assets/js/lib/data-table/jszip.min.js"></script>
+<script src="assets/js/lib/data-table/vfs_fonts.js"></script>
+<script src="assets/js/lib/data-table/buttons.html5.min.js"></script>
+<script src="assets/js/lib/data-table/buttons.print.min.js"></script>
+<script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
+<script src="assets/js/lib/data-table/datatables-init.js"></script>
+</body>
+</html>
