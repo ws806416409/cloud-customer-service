@@ -1,6 +1,7 @@
 package com.igeekhome.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.igeekhome.biz.IWorkOrderService;
 import com.igeekhome.pojo.Session;
@@ -50,11 +51,13 @@ public class WorkOrderController {
      * @param id
      * @return
      */
-    @RequestMapping("/findById")
+    @GetMapping("/findById")
     public String find(Model model, @RequestParam Integer id){
-        log.info("find OrderById" + id);
-        this.iWorkOrderService.removeById(id);
-        return "redirect:/workOrder/index";
+        QueryWrapper<WorkOrder> qu=new QueryWrapper<>();
+        qu.eq("id",id);
+        WorkOrder wo=  iWorkOrderService.getOne(qu);
+        model.addAttribute("orderInfo", wo);
+        return "order/page-WorkOrder";
     }
 
     /**
@@ -68,6 +71,7 @@ public class WorkOrderController {
         session.setAttribute("orderId",id);
         return "order/order-update";
     }
+
 
     @PostMapping("/updateById")
     public String update(WorkOrder workOrder, HttpSession session){

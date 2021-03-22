@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/head.html::head(~{::title})">
+    <title>查看订单</title>
+</head>
+
+<body class=" sidebar-hide pace-done">
+<div class="pace  pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99"
+         style="transform: translate3d(100%, 0px, 0px);">
+        <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+</div>
+<div class="pace  pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99"
+         style="transform: translate3d(100%, 0px, 0px);">
+        <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+</div>
+
+<div th:replace="fragment/sidebar.html::sidebar"></div>
+
+<div th:replace="fragment/header.html::header"></div>
+
+
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>工单详情</h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+                <div class="col-lg-4 p-l-0 title-margin-left">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a href="#">工单详情</a></li>
+                                <li class="active">WorkOrder</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+            </div>
+            <!-- /# row -->
+            <section id="main-content">
+                <div class="card alert">
+                    <div class="card-body">
+                        <div class="card-header m-b-20">
+                            <h4>工单详情</h4>
+                            <div class="card-header-right-icon">
+                                <ul>
+                                    <li class="card-close" data-dismiss="alert"><i class="ti-close"></i></li>
+                                    <li class="card-option drop-menu"><i class="ti-settings" data-toggle="dropdown"
+                                                                         aria-haspopup="true" aria-expanded="true"
+                                                                         role="link"></i>
+                                        <ul class="card-option-dropdown dropdown-menu">
+                                            <li><a href="#"><i class="ti-loop"></i> Update data</a></li>
+                                            <li><a href="#"><i class="ti-menu-alt"></i> Detail log</a></li>
+                                            <li><a href="#"><i class="ti-pulse"></i> Statistics</a></li>
+                                            <li><a href="#"><i class="ti-power-off"></i> Clear ist</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="doc-link"><a href="#"><i class="ti-link"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <div class="basic-form">
+                                    <div class="form-group">
+                                        <label>工单类别</label>
+                                        <span type="text"  class="form-control border-none input-flat bg-ash"
+                                               placeholder="" th:text="${orderInfo.getWorktype()}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="basic-form">
+                                    <div class="form-group">
+                                        <label>工单标题</label>
+                                        <span type="text"  class="form-control border-none input-flat bg-ash"
+                                              placeholder="" th:text="${orderInfo.getTitle()}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="basic-form">
+                                    <div class="form-group">
+                                        <label>工单描述</label>
+                                        <span type="text"  class="form-control border-none input-flat bg-ash"
+                                              placeholder="" th:text="${orderInfo.getOrderdesc()}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="basic-form">
+                                    <div class="form-group">
+                                        <label>创建时间</label>
+                                        <span type="text"  class="form-control border-none input-flat bg-ash"
+                                              placeholder="" th:text="${orderInfo.getCreatetime()}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="basic-form">
+                                    <div class="form-group">
+                                        <label>客服名</label>
+                                        <span type="text"  class="form-control border-none input-flat bg-ash"
+                                              placeholder="" th:text="${orderInfo.getCclist()}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-3">
+                                <div class="basic-form">
+                                    <div class="form-group">
+                                        <label>优先级</label>
+                                        <span type="text"  class="form-control border-none input-flat bg-ash"
+                                              placeholder="" th:text="${orderInfo.getPriority()}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="basic-form">
+                                    <div class="form-group">
+                                        <label>工单状态</label>
+                                        <span type="text"  class="form-control border-none input-flat bg-ash"
+                                              placeholder="" th:text="${orderInfo.getState()}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="basic-form">
+                                    <div class="form-group">
+                                        <label>客服id</label>
+                                        <span type="text"  class="form-control border-none input-flat bg-ash"
+                                              placeholder="" th:text="${orderInfo.getCustomerserviceid()}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="basic-form">
+                                    <div class="form-group">
+                                        <label>客服组号</label>
+                                        <span type="text"  class="form-control border-none input-flat bg-ash"
+                                              placeholder="" th:text="${orderInfo.getCustomerservicegroupid()}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="basic-form">
+                                    <div class="form-group">
+                                        <label>客户id</label>
+                                        <span type="text"  class="form-control border-none input-flat bg-ash"
+                                              placeholder="" th:text="${orderInfo.getCustomerid()}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="basic-form">
+                                    <div class="form-group">
+                                        <label>渠道</label>
+                                        <span type="text"  class="form-control border-none input-flat bg-ash"
+                                              placeholder="" th:text="${orderInfo.getChannel()}"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="basic-form">
+
+                                    <div class="form-group">
+                                        <label>更新时间</label>
+                                        <span type="text"  class="form-control border-none input-flat bg-ash"
+                                              placeholder="" th:text="${orderInfo.getUpdatetime()}"/>
+                                    </div>
+
+                        </div>
+                            </div>
+                        <a th:href="@{/index}">返回</a>
+<!--                        <button class="btn btn-default btn-lg m-b-10 m-l-5 sbmt-btn" type="button">返回</button>-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer">
+                            <p>该工单详情更新于<span id="date-time">Sat Mar 20 2021 14:44:45 GMT+0800 (中国标准时间)</span>
+                                </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<div id="search">
+    <button type="button" class="close">×</button>
+    <form>
+        <input type="search" value="" placeholder="type keyword(s) here">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+<!-- jquery vendor -->
+<script src="../../static/assets/js/lib/jquery.min.js"></script>
+<script src="../../static/assets/js/lib/jquery.nanoscroller.min.js"></script>
+<!-- nano scroller -->
+<script src="../../static/assets/js/lib/menubar/sidebar.js"></script>
+<script src="../../static/assets/js/lib/preloader/pace.min.js"></script>
+<!-- sidebar -->
+<script src="../../static/assets/js/lib/bootstrap.min.js"></script>
+<!-- bootstrap -->
+
+
+<script src="../../static/assets/js/lib/calendar-2/moment.latest.min.js"></script>
+<!-- scripit init-->
+<script src="../../static/assets/js/lib/calendar-2/semantic.ui.min.js"></script>
+<!-- scripit init-->
+<script src="../../static/assets/js/lib/calendar-2/prism.min.js"></script>
+<!-- scripit init-->
+<script src="../../static/assets/js/lib/calendar-2/pignose.calendar.min.js"></script>
+<!-- scripit init-->
+<script src="../../static/assets/js/lib/calendar-2/pignose.init.js"></script>
+<!-- scripit init-->
+
+<script src="../../static/assets/js/scripts.js"></script>
+<!-- scripit init-->
+
+
+</body>
+</html>

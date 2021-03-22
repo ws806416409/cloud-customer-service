@@ -50,6 +50,7 @@ public class CustomerServiceController {
         QueryWrapper<CustomerService> qu=new QueryWrapper<>();
         qu.eq("email",customerService.getEmail());
         qu.eq("password",customerService.getPassword());
+        
         CustomerService cs=  iCustomerServiceService.getOne(qu);
         if(cs!=null)
         {

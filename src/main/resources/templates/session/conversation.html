@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <title>会话</title>
+
+    <!-- ================= Favicon ================== -->
+
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/lib/menubar/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/Unix.css" rel="stylesheet">
+    <link type="text/css" href="https://lab.morfans.cn/LiteWebChat_Frame/litewebchat.min.css" rel="stylesheet"/>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+    </style>
+</head>
+
+<body>
+
+<div th:replace="fragment/sidebar.html::sidebar"></div>
+<!-- /# sidebar -->
+<div th:replace="fragment/header.html::header"></div>
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>云客服后台管理系统</h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+                <div class="col-lg-4 p-l-0 title-margin-left">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a href="#">首页</a></li>
+                                <li class="active">会话</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+            </div>
+            <!-- /# row -->
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card alert">
+                            <div class="card-body">
+                                <div class="compose-email">
+                                    <div class="mail-box">
+                                        <aside class="col-lg-5">
+                                            <div class="user-head">
+                                                <a class="inbox-avatar" href="javascript:">
+                                                    <img src="assets/images/user.jpg" alt="">
+                                                </a>
+                                                <div class="user-name">
+                                                    <h3 th:text="${csInfo.getRealname()}">(客户名)</h3>
+                                                    <span th:text="${csInfo.getEmail()}">(客户的邮箱)</span>
+                                                </div>
+                                            </div>
+                                            <div class="inbox-body text-center">
+                                                <a href="#" th:href="@{/customerInfo/details(id=${csInfo.getId()})}" class="btn btn-compose">客户详情(点击进入客户详情)</a>
+                                            </div>
+                                            <ul class="nav nav-pills nav-stacked labels-info inbox-divider">
+
+                                            </ul>
+                                            <ul class="nav nav-pills nav-stacked labels-info inbox-divider">
+                                                <li>
+                                                    <h3>客户基本信息</h3>
+                                                </li>
+                                                <li>
+                                                    <i class="glyphicon glyphicon-user"></i>
+                                                    <label>真实姓名：</label>
+                                                    <textarea
+                                                            disabled
+                                                            class="well well-sm"
+                                                            rows="1"
+                                                            style="width: 90%; resize: none"
+                                                            th:text="${csInfo.getRealname()}"
+                                                    >真实姓名</textarea>
+                                                </li>
+                                                <li>
+                                                    <i class="glyphicon glyphicon-earphone"></i>
+                                                    <label>电话：</label>
+                                                    <textarea
+                                                            disabled
+                                                            class="well well-sm"
+                                                            rows="1"
+                                                            style="width:90%; resize: none"
+                                                            th:text="${csInfo.getPhone()}"
+                                                    >电话</textarea>
+                                                </li>
+                                                <li>
+                                                    <i class="glyphicon glyphicon-envelope"></i>
+                                                    <label>email：</label>
+                                                    <textarea
+                                                            disabled
+                                                            class="well well-sm"
+                                                            rows="1"
+                                                            style="width: 90%; resize: none"
+                                                            th:text="${csInfo.getEmail()}"
+                                                    >email</textarea>
+                                                </li>
+                                                <li>
+                                                    <i class="glyphicon glyphicon-exclamation-sign"></i>
+                                                    <label>登录状态：</label>
+                                                    <textarea
+                                                            disabled
+                                                            class="well well-sm"
+                                                            rows="1"
+                                                            style="width: 90%; resize: none"
+                                                            th:text="${csInfo.getState()}"
+                                                    >状态</textarea>
+                                                </li>
+                                            </ul>
+                                            <ul class="nav nav-pills nav-stacked labels-info ">
+                                                <li>
+                                                    <h3>操作</h3>
+                                                </li>
+                                                <li>
+                                                    <a href="#" th:href="@{/workOrder/index}"> <i class="glyphicon glyphicon-plus"></i>创建工单
+                                                        <p>为当前客户创建一个新工单</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a th:href="@{/blackList/add(id=${csInfo.getId()})}"> <i class="glyphicon glyphicon-remove"></i>拉黑用户
+                                                        <p>如果当前客户存在不当言论，建议拉黑</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" th:href="@{/workOrder/findById(id=${csInfo.getId()})}"> <i class="glyphicon glyphicon-list"></i>历史工单
+                                                        <p>查看当前客户的历史工单</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                        </aside>
+                                        <aside class="col-lg-7"
+                                               style="background-color: #f0f0f0; height: 60%; width: 100%; border-radius: 8px; margin: auto">
+                                            <!--会话组件-->
+                                            <h3 style="text-align: center">客户名</h3>
+                                            <div style="background-color: #ffffff; height: 600px; width: 90%; border-radius: 8px; margin: auto">
+                                                <div class="lite-chatbox">
+
+                                                    <div class="cright cmsg">
+                                                        <img class="headIcon radius" ondragstart="return false;"
+                                                             oncontextmenu="return false;" src="./img/B.jpg" alt=""/>
+                                                        <span class="name">SuperPaxxs</span>
+                                                        <span class="content">LiteChat_Frame（轻聊天气泡框架），一个贼简洁 <del>(简单)</del> 、美观、易用的 HTML 聊天界面框架</span>
+                                                    </div>
+                                                    <div class="cright cmsg">
+                                                        <img class="headIcon radius" ondragstart="return false;"
+                                                             oncontextmenu="return false;" src="./img/B.jpg" alt=""/>
+                                                        <span class="name">SuperPaxxs</span>
+                                                        <span class="content">LiteChat_Frame（轻聊天气泡框架），一个贼简洁 <del>(简单)</del> 、美观、易用的 HTML 聊天界面框架</span>
+                                                    </div>
+                                                    <div class="cleft cmsg">
+                                                        <img class="headIcon radius" ondragstart="return false;"
+                                                             oncontextmenu="return false;" src="./img/B.jpg" alt=""/>
+                                                        <span class="name">SuperPaxxs</span>
+                                                        <span class="content">LiteChat_Frame（轻聊天气泡框架），一个贼简洁 <del>(简单)</del> 、美观、易用的 HTML 聊天界面框架</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <div>
+                                                <form
+                                                        action="#"
+                                                        method="post"
+                                                        style="background-color: #f0f0f0; height: 300px; width: 90%;border: 10px hidden #f0f0f0; border-radius: 5px; margin: auto"
+                                                >
+                                                    <div class="form-group">
+                                                        <label for="textarea" class="">客服Id：客服名</label>
+                                                            <textarea
+                                                                    id="textarea"
+                                                                    style="width: 100%; position: center; border-radius: 8px; resize: none"
+
+                                                                    rows="6" placeholder="开始愉快的聊天吧！"></textarea>
+
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary"
+                                                            style="display: inline-block">提交
+                                                    </button>
+                                                    <div class="dropdown" style="display: inline-block">
+                                                        <button class="btn btn-default dropdown-toggle"
+                                                                type="button" id="dropdownMenu1"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="true">
+                                                            常用语
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu"
+                                                            aria-labelledby="dropdownMenu1">
+                                                            <li><a href="#">常用语1</a></li>
+                                                            <li><a href="#">常用语2</a></li>
+                                                            <li><a href="#">常用语3</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </aside>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="assets/js/lib/jquery.nicescroll.min.js"></script>
+<script src="assets/js/lib/menubar/sidebar.js"></script>
+<script src="assets/js/lib/preloader/pace.min.js"></script>
+<script src="assets/js/lib/bootstrap.min.js"></script>
+
+
+<script src="assets/js/scripts.js"></script>
+</body>
+
+</html>

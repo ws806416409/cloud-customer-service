@@ -21,16 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/session")
 public class SessionController {
 
-    @GetMapping("/get")
-    public String getSession(){
-        return "session/conversation";
-    }
-
-    @RequestMapping("/sendMsg")
-    public String csMsg(String csMsg){
-        log.info(csMsg);
-        return "index";
-    }
 
 }
 
