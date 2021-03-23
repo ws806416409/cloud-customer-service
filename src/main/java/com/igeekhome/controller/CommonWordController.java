@@ -17,5 +17,8 @@ import org.springframework.stereotype.Controller;
 @RequestMapping("/commonWord")
 public class CommonWordController {
 
+    public void test(){
+        System.out.println("test");
+    }
 }
 
