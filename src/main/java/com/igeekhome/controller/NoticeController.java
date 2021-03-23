@@ -1,6 +1,7 @@
 package com.igeekhome.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.igeekhome.biz.INoticeService;
 import com.igeekhome.biz.impl.NoticeServiceImpl;
 import com.igeekhome.pojo.Notice;
@@ -56,6 +57,10 @@ public class NoticeController {
         } else {
             model.addAttribute("notice_msg","请至少填写公告内容");
         }
+        QueryWrapper qw =new QueryWrapper();
+        qw.orderByDesc("id");
+        List<Notice> list = iNoticeService.list(qw);
+        session.setAttribute("notice",list);
 
         return "mysetting/page-isettings";
     }
