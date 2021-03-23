@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragment/head.html::head(~{::title})"><title>Home</title></head>
+<body>
+
+<!-- 引入thymeleaf的碎片化：fragment -->
+<div th:replace="fragment/sidebar.html::sidebar"></div>
+<div th:replace="fragment/header.html::header"></div>
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>你好,&nbsp;<span>欢迎来到客服管理系统</span></h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+                <div class="col-lg-4 p-l-0 title-margin-left">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a th:href="@{/index}" >控制台</a></li>
+                                <li class="active">通用设置</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+            </div>
+            <!-- /# row -->
+
+
+
+            <section th:replace="fragment/setter.html::setter"></section>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card alert">
+                        <div class="card-header pr">
+                            <h4>Create A Notice</h4>
+                        </div>
+                        <form th:action="@{/notice/noticeinsert}" method="post">
+                            <div class="basic-form m-t-20">
+                                <div class="form-group">
+                                    <label>标题</label>
+                                    <input type="text" class="form-control border-none input-flat bg-ash" placeholder="" name="title">
+                                </div>
+                            </div>
+                            <div class="basic-form m-t-20">
+                                <div class="form-group">
+                                    <label>具体内容</label>
+                                    <input type="text" class="form-control border-none input-flat bg-ash" placeholder="" name="content">
+                                </div>
+                            </div>
+                            <div class="basic-form m-t-20">
+                                <div class="form-group">
+                                    <label>发布者ID</label>
+                                    <input type="text" class="form-control border-none input-flat bg-ash" placeholder="" name="creatorid">
+                                </div>
+                            </div>
+                            <div class="basic-form m-t-20">
+                                <div class="form-group">
+                                    <label>姓名</label>
+                                    <input type="text" class="form-control border-none input-flat bg-ash" placeholder="" name="creatorname">
+                                </div>
+                            </div>
+                            <div class="basic-form">
+                                <div class="form-group">
+                                    <label>日期</label>
+                                    <input type="datetime-local" class="form-control calendar bg-ash" name="createtime">
+                                    <span class="ti-calendar form-control-feedback booking-system-feedback m-t-30"></span>
+                                </div>
+                            </div>
+                            <div>
+                            <h4 th:text="${notice_msg}"></h4>
+                            </div>
+                            <button  type="submit">Submit</button>
+                        </form>
+
+
+                    </div>
+                </div>
+
+                <!-- /# row -->
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div id="search">
+    <button type="button" class="close">×</button>
+    <form>
+        <input type="search" value="" placeholder="type keyword(s) here" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+
+</div>
+<!-- jquery vendor -->
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<!-- nano scroller -->
+<script src="assets/js/lib/menubar/sidebar.js"></script>
+<script src="assets/js/lib/preloader/pace.min.js"></script>
+<!-- sidebar -->
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<!-- bootstrap -->
+
+<script src="assets/js/scripts.js"></script>
+<!-- scripit init-->
+<script src="assets/js/lib/data-table/datatables.min.js"></script>
+<script src="assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+<script src="assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+<script src="assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+<script src="assets/js/lib/data-table/jszip.min.js"></script>
+<script src="assets/js/lib/data-table/pdfmake.min.js"></script>
+<script src="assets/js/lib/data-table/vfs_fonts.js"></script>
+<script src="assets/js/lib/data-table/buttons.html5.min.js"></script>
+<script src="assets/js/lib/data-table/buttons.print.min.js"></script>
+<script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
+<script src="assets/js/lib/data-table/datatables-init.js"></script>
+
+<!-- jquery vendor -->
+<script src="assets/js/lib/jquery.min.js"></script>
+<!-- nano scroller -->
+<script src="assets/js/lib/menubar/sidebar.js"></script>
+<script src="assets/js/lib/preloader/pace.min.js"></script>
+<!-- sidebar -->
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<!-- bootstrap -->
+<script src="assets/js/scripts.js"></script>
+<!-- scripit init-->
+</body>
+
+</html>

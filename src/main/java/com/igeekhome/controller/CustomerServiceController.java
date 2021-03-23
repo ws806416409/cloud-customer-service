@@ -7,7 +7,10 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.injector.methods.UpdateById;
 import com.igeekhome.biz.ICustomerInfoService;
 import com.igeekhome.biz.ICustomerServiceService;
+import com.igeekhome.biz.INoticeService;
+import com.igeekhome.biz.IVisitorInfoService;
 import com.igeekhome.pojo.CustomerService;
+import com.igeekhome.pojo.Notice;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -21,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * <p>
@@ -41,6 +45,12 @@ public class CustomerServiceController {
     @Autowired
     private ICustomerInfoService iCustomerInfoService;
 
+    @Autowired
+    private INoticeService iNoticeService;
+
+    @Autowired
+    private IVisitorInfoService iVisitorInfoService;
+
     @RequestMapping("/login")
     public String checkCustomerServiceNameAndPwd(CustomerService customerService, Model model, HttpSession session)
     {
@@ -58,9 +68,17 @@ public class CustomerServiceController {
             session.setAttribute("customerCount",this.iCustomerInfoService.count());
             //客服数量
             session.setAttribute("csCount", this.iCustomerServiceService.count());
-
+            //访问量
+            session.setAttribute("visitorCount",this.iVisitorInfoService.count());
             session.setAttribute("cs", cs);
             //在数据库匹配到了邮箱和密码信息 跳转到主页
+
+            //通告栏
+
+            QueryWrapper qw =new QueryWrapper();
+            qw.orderByDesc("id");
+            List<Notice> list = iNoticeService.list(qw);
+            session.setAttribute("notice",list);
             path = "redirect:/index";
         }
         else {

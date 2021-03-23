@@ -151,45 +151,46 @@
                                             <h3 style="text-align: center">客户名</h3>
                                             <div style="background-color: #ffffff; height: 600px; width: 90%; border-radius: 8px; margin: auto">
                                                 <div class="lite-chatbox">
+                                                    <li class="cleft cmsg">
+                                                        <img class="headIcon radius" ondragstart="return false;"
+                                                             oncontextmenu="return false;" src="./img/B.jpg" alt=""/>
+                                                        <span class="name">SuperPaxxs</span>
+                                                        <span class="content">这个衣服是正品吗？</span>
+                                                    </li>
+                                                    <li class="cright cmsg">
+                                                        <img class="headIcon radius" ondragstart="return false;"
+                                                             oncontextmenu="return false;" src="./img/B.jpg" alt=""/>
+                                                        <span class="name">SuperPaxxs</span>
+                                                        <span class="content">是官方正品的喔！</span>
+                                                    </li>
+                                                    <ul id="conversation" th:each="list : ${list}">
+                                                        <li class="cright cmsg">
+                                                            <img class="headIcon radius" ondragstart="return false;"
+                                                                 oncontextmenu="return false;" src="./img/B.jpg" alt=""/>
+                                                            <span class="name">SuperPaxxs</span>
+                                                            <span class="content" th:text="${list.getContent()}">LiteChat_Frame（轻聊天气泡框架），一个贼简洁 <del>(简单)</del> 、美观、易用的 HTML 聊天界面框架</span>
+                                                        </li>
 
-                                                    <div class="cright cmsg">
-                                                        <img class="headIcon radius" ondragstart="return false;"
-                                                             oncontextmenu="return false;" src="./img/B.jpg" alt=""/>
-                                                        <span class="name">SuperPaxxs</span>
-                                                        <span class="content">LiteChat_Frame（轻聊天气泡框架），一个贼简洁 <del>(简单)</del> 、美观、易用的 HTML 聊天界面框架</span>
-                                                    </div>
-                                                    <div class="cright cmsg">
-                                                        <img class="headIcon radius" ondragstart="return false;"
-                                                             oncontextmenu="return false;" src="./img/B.jpg" alt=""/>
-                                                        <span class="name">SuperPaxxs</span>
-                                                        <span class="content">LiteChat_Frame（轻聊天气泡框架），一个贼简洁 <del>(简单)</del> 、美观、易用的 HTML 聊天界面框架</span>
-                                                    </div>
-                                                    <div class="cleft cmsg">
-                                                        <img class="headIcon radius" ondragstart="return false;"
-                                                             oncontextmenu="return false;" src="./img/B.jpg" alt=""/>
-                                                        <span class="name">SuperPaxxs</span>
-                                                        <span class="content">LiteChat_Frame（轻聊天气泡框架），一个贼简洁 <del>(简单)</del> 、美观、易用的 HTML 聊天界面框架</span>
-                                                    </div>
+                                                    </ul>
+
                                                 </div>
                                             </div>
                                             <br/>
                                             <div>
                                                 <form
-                                                        action="#"
-                                                        method="post"
+                                                        method="post" th:action="@{/sessionMessage/send(sessionid=${csInfo.getId()})}"
                                                         style="background-color: #f0f0f0; height: 300px; width: 90%;border: 10px hidden #f0f0f0; border-radius: 5px; margin: auto"
                                                 >
                                                     <div class="form-group">
                                                         <label for="textarea" class="">客服Id：客服名</label>
-                                                            <textarea
-                                                                    id="textarea"
-                                                                    style="width: 100%; position: center; border-radius: 8px; resize: none"
-
-                                                                    rows="6" placeholder="开始愉快的聊天吧！"></textarea>
+                                                        <textarea
+                                                                id="textarea" name="content"
+                                                                style="width: 100%; position: center; border-radius: 8px; resize: none"
+                                                                rows="6" placeholder="开始愉快的聊天吧！"></textarea>
 
                                                     </div>
                                                     <button type="submit" class="btn btn-primary"
-                                                            style="display: inline-block">提交
+                                                            style="display: inline-block" id="btn1">发送
                                                     </button>
                                                     <div class="dropdown" style="display: inline-block">
                                                         <button class="btn btn-default dropdown-toggle"
@@ -201,9 +202,9 @@
                                                         </button>
                                                         <ul class="dropdown-menu"
                                                             aria-labelledby="dropdownMenu1">
-                                                            <li><a href="#">常用语1</a></li>
-                                                            <li><a href="#">常用语2</a></li>
-                                                            <li><a href="#">常用语3</a></li>
+                                                            <li><a th:href="@{/sessionMessage/phrase(id=${csInfo.getId()}, wordid=1)}" name="content">您好，有什么需要帮助的吗？</a></li>
+                                                            <li><a th:href="@{/sessionMessage/phrase(id=${csInfo.getId()}, wordid=6)}" name="content">这边正在为您转接技术支持工程师，请稍候</a></li>
+                                                            <li><a th:href="@{/sessionMessage/phrase(id=${csInfo.getId()}, wordid=14)}" name="content">可以查看我们产品主页哦，亲</a></li>
                                                         </ul>
                                                     </div>
                                                 </form>
@@ -225,7 +226,8 @@
 <script src="assets/js/lib/menubar/sidebar.js"></script>
 <script src="assets/js/lib/preloader/pace.min.js"></script>
 <script src="assets/js/lib/bootstrap.min.js"></script>
-
+<!--<script srr="jquery-3.3.1.min.js"></script>-->
+<!--<script src="conversation.js"></script>-->
 
 <script src="assets/js/scripts.js"></script>
 </body>

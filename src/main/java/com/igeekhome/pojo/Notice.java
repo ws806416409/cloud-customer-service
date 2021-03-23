@@ -33,7 +33,9 @@ public class Notice implements Serializable {
     private Integer creatorid;
 
     @TableField("createTime")
-    private LocalDateTime createtime;
+    private String createtime;
 
+    @TableField("creatorName")
+    private String creatorname;
 
 }

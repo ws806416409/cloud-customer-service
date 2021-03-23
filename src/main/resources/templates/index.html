@@ -7,7 +7,7 @@
 <!-- 引入thymeleaf的碎片化：fragment -->
 <div th:replace="fragment/sidebar.html::sidebar"></div>
 <div th:replace="fragment/header.html::header"></div>
-<div class="content-wrap">
+<div class="content-wrap" style="background-image: url('/assets/images/img_2.png')">
     <div class="main">
         <div class="container-fluid">
             <div class="row">
@@ -33,620 +33,207 @@
             </div>
             <!-- /# row -->
             <section id="main-content">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <div class="stat-widget-eight">
-                                <div class="stat-header">
-                                    <div class="header-title pull-left">客户数量</div>
-                                    <div class="card-option drop-menu pull-right">
-                                        <i
-                                                class="ti-more-alt"
-                                                data-toggle="dropdown"
-                                                aria-haspopup="true"
-                                                aria-expanded="true"
-                                                role="link"
-                                        ></i>
-                                        <ul class="card-option-dropdown dropdown-menu">
-                                            <li>
-                                                <a href="#"><i class="ti-loop"></i> Update data</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"
-                                                ><i class="ti-menu-alt"></i> Detail log</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ti-pulse"></i> Statistics</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"
-                                                ><i class="ti-power-off"></i> Clear ist</a
-                                                >
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="stat-content">
-                                    <div class="pull-left">
-                                        <i class="ti-arrow-up color-success"></i>
-                                        <span class="stat-digit" th:text="${session.customerCount}"> 14,2158.35</span>
-                                    </div>
-                                    <div class="pull-right">
-                                        <span class="progress-stats">70%</span>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="progress">
-                                    <div
-                                            class="progress-bar progress-bar-primary w-70"
-                                            role="progressbar"
-                                            aria-valuenow="70"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"
-                                    >
-                                        <span class="sr-only">70% Complete</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <div class="stat-widget-eight">
-                                <div class="stat-header">
-                                    <div class="header-title pull-left">客服数量</div>
-                                    <div class="card-option drop-menu pull-right">
-                                        <i
-                                                class="ti-more-alt"
-                                                data-toggle="dropdown"
-                                                aria-haspopup="true"
-                                                aria-expanded="true"
-                                                role="link"
-                                        ></i>
-                                        <ul class="card-option-dropdown dropdown-menu">
-                                            <li>
-                                                <a href="#"><i class="ti-loop"></i> Update data</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"
-                                                ><i class="ti-menu-alt"></i> Detail log</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ti-pulse"></i> Statistics</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"
-                                                ><i class="ti-power-off"></i> Clear ist</a
-                                                >
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="stat-content">
-                                    <div class="pull-left">
-                                        <i class="ti-arrow-up color-success"></i>
-                                        <span class="stat-digit" th:text="${session.csCount}"> 14,2158.35</span>
-                                    </div>
-                                    <div class="pull-right">
-                                        <span class="progress-stats">70%</span>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="progress">
-                                    <div
-                                            class="progress-bar progress-bar-success w-70"
-                                            role="progressbar"
-                                            aria-valuenow="70"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"
-                                    >
-                                        <span class="sr-only">70% Complete</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <div class="stat-widget-eight">
-                                <div class="stat-header">
-                                    <div class="header-title pull-left">访问增长量</div>
-                                    <div class="card-option drop-menu pull-right">
-                                        <i
-                                                class="ti-more-alt"
-                                                data-toggle="dropdown"
-                                                aria-haspopup="true"
-                                                aria-expanded="true"
-                                                role="link"
-                                        ></i>
-                                        <ul class="card-option-dropdown dropdown-menu">
-                                            <li>
-                                                <a href="#"><i class="ti-loop"></i> Update data</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"
-                                                ><i class="ti-menu-alt"></i> Detail log</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ti-pulse"></i> Statistics</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"
-                                                ><i class="ti-power-off"></i> Clear ist</a
-                                                >
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="stat-content">
-                                    <div class="pull-left">
-                                        <i class="ti-arrow-down color-danger"></i>
-                                        <span class="stat-digit"> 14,2158.35</span>
-                                    </div>
-                                    <div class="pull-right">
-                                        <span class="progress-stats">70%</span>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="progress">
-                                    <div
-                                            class="progress-bar progress-bar-warning w-70"
-                                            role="progressbar"
-                                            aria-valuenow="70"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"
-                                    >
-                                        <span class="sr-only">70% Complete</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <div class="stat-widget-eight">
-                                <div class="stat-header">
-                                    <div class="header-title pull-left">页面访问量</div>
-                                    <div class="card-option drop-menu pull-right">
-                                        <i
-                                                class="ti-more-alt"
-                                                data-toggle="dropdown"
-                                                aria-haspopup="true"
-                                                aria-expanded="true"
-                                                role="link"
-                                        ></i>
-                                        <ul class="card-option-dropdown dropdown-menu">
-                                            <li>
-                                                <a href="#"><i class="ti-loop"></i> Update data</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"
-                                                ><i class="ti-menu-alt"></i> Detail log</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ti-pulse"></i> Statistics</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"
-                                                ><i class="ti-power-off"></i> Clear ist</a
-                                                >
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="stat-content">
-                                    <div class="pull-left">
-                                        <i class="ti-arrow-down color-danger"></i>
-                                        <span class="stat-digit"> 14,2158.35</span>
-                                    </div>
-                                    <div class="pull-right">
-                                        <span class="progress-stats">70%</span>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="progress">
-                                    <div
-                                            class="progress-bar progress-bar-success w-70"
-                                            role="progressbar"
-                                            aria-valuenow="70"
-                                            aria-valuemin="0"
-                                            aria-valuemax="100"
-                                    >
-                                        <span class="sr-only">70% Complete</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
+
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="row">
-                            <div class="col-lg-6"></div>
-                            <div class="col-lg-6"></div>
-                        </div>
-                    </div>
-                    <!-- /# column -->
-                    <div class="col-lg-12">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="card alert">
-                                    <div class="card-header">
-                                        <h4 class="m-l-5">twitter统计</h4>
-                                        <div class="card-header-right-icon">
-                                            <ul>
-                                                <li><i class="ti-reload"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="media-stats-content text-center">
-                                            <div class="row">
-                                                <div class="col-lg-4 border-bottom">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">5482</div>
-                                                        <div class="stats-text">Followers</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-bottom border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">8320</div>
-                                                        <div class="stats-text">New Followers</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-bottom border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">4712</div>
-                                                        <div class="stats-text">New Tweets</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">3652</div>
-                                                        <div class="stats-text">Retweets</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">9874</div>
-                                                        <div class="stats-text">Mentions</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">1254</div>
-                                                        <div class="stats-text">Favorites</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="card alert">
+                            <div class="card-header">
+                                <h4>快捷入口</h4>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="card alert">
-                                    <div class="card-header">
-                                        <h4 class="m-l-5">Facebook统计</h4>
-                                        <div class="card-header-right-icon">
-                                            <ul>
-                                                <li><i class="ti-reload"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="media-stats-content text-center">
-                                            <div class="row">
-                                                <div class="col-lg-4 border-bottom">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">9275</div>
-                                                        <div class="stats-text">Fans</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-bottom border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">6984</div>
-                                                        <div class="stats-text">New Fans</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-bottom border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">2144</div>
-                                                        <div class="stats-text">Post Reach</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">6584</div>
-                                                        <div class="stats-text">Interaction</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">4580</div>
-                                                        <div class="stats-text">Page Impressions</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">2540</div>
-                                                        <div class="stats-text">Talking About</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card alert bg-linkedin">
-                                    <div class="card-header">
-                                        <h4 class="m-l-5">Linkedin统计</h4>
-                                        <div class="card-header-right-icon">
-                                            <ul>
-                                                <li><i class="ti-reload"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="media-stats-content text-center">
-                                            <div class="row">
-                                                <div class="col-lg-4 border-bottom">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">9654</div>
-                                                        <div class="stats-text">Followers</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-bottom border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">1254</div>
-                                                        <div class="stats-text">New Followers</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-bottom border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">6580</div>
-                                                        <div class="stats-text">Impressions</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">5740</div>
-                                                        <div class="stats-text">Click</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">3987</div>
-                                                        <div class="stats-text">Like</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">5568</div>
-                                                        <div class="stats-text">Avg: Engagement</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card alert">
-                                    <div class="card-header">
-                                        <h4 class="m-l-5">Youtube统计</h4>
-                                        <div class="card-header-right-icon">
-                                            <ul>
-                                                <li><i class="ti-reload"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="media-stats-content text-center">
-                                            <div class="row">
-                                                <div class="col-lg-4 border-bottom">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">9358</div>
-                                                        <div class="stats-text">Subscribers</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-bottom border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">6584</div>
-                                                        <div class="stats-text">New Subscribers</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-bottom border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">12470</div>
-                                                        <div class="stats-text">Lifetime Views</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">4795</div>
-                                                        <div class="stats-text">View This Month</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">5480</div>
-                                                        <div class="stats-text">Likes</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4 border-left">
-                                                    <div class="stats-content">
-                                                        <div class="stats-digit">147</div>
-                                                        <div class="stats-text">Comments</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card alert">
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                <tr>
-                                                    <th>平台</th>
-                                                    <th>访问数</th>
-                                                    <th>目标</th>
-                                                    <th>GCR</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>Facebook</td>
-                                                    <td>2,456</td>
-                                                    <td>99</td>
-                                                    <td>6.59%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Twitter</td>
-                                                    <td>1,006</td>
-                                                    <td>88</td>
-                                                    <td>2.48%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Linked in</td>
-                                                    <td>923</td>
-                                                    <td>55</td>
-                                                    <td>6.24%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Google Plus</td>
-                                                    <td>180</td>
-                                                    <td>69</td>
-                                                    <td>2.50%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Youtube</td>
-                                                    <td>457</td>
-                                                    <td>77</td>
-                                                    <td>4.1%</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card alert">
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                <tr>
-                                                    <th>设备</th>
-                                                    <th>访问量</th>
-                                                    <th>Avg. time</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>Unknown</td>
-                                                    <td>2,456</td>
-                                                    <td>00:02:36</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Apple iPad</td>
-                                                    <td>1,006</td>
-                                                    <td>00:03:41</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Apple iPhone</td>
-                                                    <td>68</td>
-                                                    <td>00:04:10</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>HTC Desire</td>
-                                                    <td>38</td>
-                                                    <td>00:01:40</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Samsung</td>
-                                                    <td>20</td>
-                                                    <td>00:04:54</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /# column -->
+                            <div class="button-list">
+
+                                <a th:href="@{/customerService/info}" class="abc"><button type="button" class="btn btn-default btn-outline m-b-10 " style="background: #1aa62a">个人资料</button></a>
+                                <a th:href="@{/workOrder/index}" class="abc"><button type="button" class="btn btn-default btn-outline m-b-10 m-l-5" style="background: #2ea8e5">工单列表</button></a>
+                                <a href="#" class="abc"><button type="button" class="btn btn-default btn-outline m-b-10 m-l-5" style="background:#F1E2D3">客户管理</button></a>
+                                <a th:href="@{/viewStatistics/attendance}" class="abc"><button type="button" class="btn btn-default btn-outline m-b-10 m-l-5"style="background:darkorange">考勤统计</button></a>
+                                <a th:href="@{/notice/iSettings}" class="abc"><button type="button" class="btn btn-default btn-outline m-b-10 m-l-5" >全部设置</button></a>
+                                <a class="abc"><button type="button" class="btn btn-default btn-outline m-b-10 m-l-5" style="background: #2ed3aa">Danger</button></a>
+                                <a><button type="button" class="btn btn-default btn-outline m-b-10 m-l-5">Pink</button></a>
+                                <a><button type="button" class="btn btn-default btn-outline m-b-10 m-l-5" style="background: #91f4dc">Dark</button></a>
                             </div>
                         </div>
-                        <div class="row"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12"></div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4"></div>
-                    <!-- /# column -->
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-4"></div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4"></div>
-                    <!-- /# column -->
-                    <div class="col-lg-4">
                         <!-- /# card -->
                     </div>
-
                     <!-- /# column -->
+                    <!--                    th:text="${session.csCount}"  style="font-family:Serif;color:darkgreen;font-size: 45px"-->
+                    <!--                    th:text="${session.customerCount}" style="font-family:Serif;color:royalblue;font-size: 45px"-->
+
+
                 </div>
-                <!-- /# row -->
-                <div class="row"></div>
+
+
+                <section id="main-content">
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="card bg-warning">
+                                <div class="stat-widget-six">
+                                    <div class="stat-icon">
+                                        <i class="ti-stats-up"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-heading">客户数量</div>
+                                            <div class="stat-text">
+                                                <span>Total: </span>
+                                                <span th:text="${session.csCount}">765 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card bg-primary">
+                                <div class="stat-widget-six">
+                                    <div class="stat-icon">
+                                        <i class="ti-stats-up"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-heading">客服数量</div>
+                                            <div class="stat-text">
+                                                <span>Total: </span>
+                                                <span th:text="${session.customerCount}">765 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card bg-warning">
+                                <div class="stat-widget-six">
+                                    <div class="stat-icon">
+                                        <i class="ti-stats-up"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-heading">Progress</div>
+                                            <div class="stat-text">Total: 765</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card bg-primary">
+                                <div class="stat-widget-six">
+                                    <div class="stat-icon">
+                                        <i class="ti-bolt-alt"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-heading">Connection</div>
+                                            <div class="stat-text">167.32 GB/s</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card alert">
+                                <div class="card-header">
+                                    <h4>客服监控</h4>
+                                </div>
+                                <div class="bootstrap-data-table-panel">
+                                    <div class="table-responsive">
+                                        <table id="row-select" class="display table table-borderd table-hover">
+                                            <thead style="background:lavender">
+                                            <tr>
+                                                <th>客服昵称</th>
+                                                <th>客服ID</th>
+                                                <th>状态</th>
+                                                <th>在线时长</th>
+                                                <th>会话次数</th>
+                                                <th>信息数</th>
+                                                <th>服务对象</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            <tr th:each="mon : ${monitoring}">
+                                                <td th:text="${mon.getNickname()}">`id`</td>
+                                                <td th:text="${mon.getCustomerserviceid()}">`title`</td>
+                                                <td th:text="${mon.getState()}">`workType`</td>
+                                                <td th:text="${mon.getTotalonlinetime()}">`customerId`</td>
+                                                <td th:text="${mon.getSessioncount()}">`customerServiceId`</td>
+                                                <td th:text="${mon.getMsgcount()}">`priority`</td>
+                                                <td th:text="${mon.getServicerole()}">`createTime`</td>
+                                            </tr>
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <th>客服昵称</th>
+                                                <th>客服ID</th>
+                                                <th>状态</th>
+                                                <th>在线时长</th>
+                                                <th>会话次数</th>
+                                                <th>信息数</th>
+                                                <th>服务对象</th>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /# card -->
+                        </div>
+                        <!-- /# column -->
+                    </div>
+                    <!-- /# row -->
+                </section>
+
+
+
+
+
             </section>
         </div>
     </div>
 </div>
 
-    <div id="search">
-        <button type="button" class="close">×</button>
-        <form>
-            <input type="search" value="" placeholder="type keyword(s) here" />
-            <button type="submit" class="btn btn-primary">Search</button>
-        </form>
-    </div>
+<div id="search">
+    <button type="button" class="close">×</button>
+    <form>
+        <input type="search" value="" placeholder="type keyword(s) here" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
 
 
-    </div>
-    <script src="assets/js/lib/jquery.min.js"></script>
-    <!-- jquery vendor -->
-    <script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
-    <!-- nano scroller -->
-    <script src="assets/js/lib/menubar/sidebar.js"></script>
-    <script src="assets/js/lib/preloader/pace.min.js"></script>
-    <!-- sidebar -->
-    <script src="assets/js/lib/bootstrap.min.js"></script>
-    <!-- bootstrap -->
-    <script src="assets/js/lib/weather/jquery.simpleWeather.min.js"></script>
-    <script src="assets/js/lib/weather/weather-init.js"></script>
-    <script src="assets/js/lib/circle-progress/circle-progress.min.js"></script>
-    <script src="assets/js/lib/circle-progress/circle-progress-init.js"></script>
-    <script src="assets/js/lib/chartist/chartist.min.js"></script>
-    <script src="assets/js/lib/chartist/chartist-init.js"></script>
-    <script src="assets/js/lib/sparklinechart/jquery.sparkline.min.js"></script>
-    <script src="assets/js/lib/sparklinechart/sparkline.init.js"></script>
-    <script src="assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
-    <script src="assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
-    <script src="assets/js/scripts.js"></script>
+</div>
+<!-- jquery vendor -->
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<!-- nano scroller -->
+<script src="assets/js/lib/menubar/sidebar.js"></script>
+<script src="assets/js/lib/preloader/pace.min.js"></script>
+<!-- sidebar -->
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<!-- bootstrap -->
+
+<script src="assets/js/scripts.js"></script>
+<!-- scripit init-->
+<script src="assets/js/lib/data-table/datatables.min.js"></script>
+<script src="assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+<script src="assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+<script src="assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+<script src="assets/js/lib/data-table/jszip.min.js"></script>
+<script src="assets/js/lib/data-table/pdfmake.min.js"></script>
+<script src="assets/js/lib/data-table/vfs_fonts.js"></script>
+<script src="assets/js/lib/data-table/buttons.html5.min.js"></script>
+<script src="assets/js/lib/data-table/buttons.print.min.js"></script>
+<script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
+<script src="assets/js/lib/data-table/datatables-init.js"></script>
 </body>
 
 </html>

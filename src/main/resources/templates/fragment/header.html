@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<div th:fragment="header" class="header">
+<div th:fragment="header" class="header" style="background-image: url('/assets/images/img.png')">
     <div class="pull-left">
-        <div class="logo"><a href="index.html"><!-- <img src="assets/images/logo.png" alt="" /> --><span>Adminity</span></a></div>
+        <div class="logo"><a href="/index"><!-- <img src="assets/images/logo.png" alt="" /> --><span>Adminity</span></a></div>
         <div class="hamburger sidebar-toggle">
             <span class="line"></span>
             <span class="line"></span>
@@ -16,54 +16,23 @@
             <li class="header-icon dib"><i class="ti-bell"></i>
                 <div class="drop-down">
                     <div class="dropdown-content-heading">
-                        <span class="text-left">Recent Notifications</span>
+                        <span class="text-left">最近通知</span>
                     </div>
-                    <div class="dropdown-content-body">
-                        <ul>
-                            <li>
-                                <a href="#">
+                    <div class="dropdown-content-body" style="height: 300px;overflow: auto;">
+
+                        <ul th:each="order ,rowInfo : ${session.notice}" style="border: #d70206; ">
+                            <li >
+                                <a class="ab" href="#" >
                                     <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
                                     <div class="notification-content">
-                                        <small class="notification-timestamp pull-right">02:34 PM</small>
-                                        <div class="notification-heading">Mr. Saifun</div>
-                                        <div class="notification-text">5 members joined today </div>
+                                        <small class="notification-timestamp pull-right" th:text="${order.getCreatetime()}"></small>
+                                        <div class="notification-heading" th:text="${order.getCreatorname()}">Mr. Saifun</div>
+                                        <div class="notification-text" th:text="${order.getTitle()}">5 members joined today </div>
                                     </div>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                    <div class="notification-content">
-                                        <small class="notification-timestamp pull-right">02:34 PM</small>
-                                        <div class="notification-heading">Mariam</div>
-                                        <div class="notification-text">likes a photo of you</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                    <div class="notification-content">
-                                        <small class="notification-timestamp pull-right">02:34 PM</small>
-                                        <div class="notification-heading">Tasnim</div>
-                                        <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
-                                    <div class="notification-content">
-                                        <small class="notification-timestamp pull-right">02:34 PM</small>
-                                        <div class="notification-heading">Ishrat Jahan</div>
-                                        <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="text-center">
-                                <a href="#" class="more-link">See All</a>
                             </li>
                         </ul>
+
                     </div>
                 </div>
             </li>
@@ -122,7 +91,7 @@
                     </div>
                 </div>
             </li>
-            <li class="header-icon dib"><img class="avatar-img" src="assets/images/avatar/1.jpg" alt="" /> <span class="user-avatar">Saifun <i class="ti-angle-down f-s-10"></i></span>
+            <li class="header-icon dib"><img class="avatar-img" src="assets/images/avatar/1.jpg" alt="" /> <span class="user-avatar" ><label>Saifun</label><i class="ti-angle-down f-s-10"></i></span>
                 <div class="drop-down dropdown-profile">
                     <div class="dropdown-content-heading">
                         <span class="text-left">Upgrade Now</span>
@@ -133,7 +102,7 @@
                             <li><a th:href="@{/customerService/info}"><i class="ti-user"></i> <span>个人资料</span></a></li>
                             <li><a href="#"><i class="ti-write"></i> <span>My Task</span></a></li>
                             <li><a href="#"><i class="ti-email"></i> <span>Inbox</span></a></li>
-                            <li><a href="#"><i class="ti-settings"></i> <span>Setting</span></a></li>
+                            <li><a href="#" th:href="@{/notice/noticeset}"><i class="ti-settings"></i> <span>设置</span></a></li>
                             <li><a href="#"><i class="ti-power-off"></i> <span>Logout</span></a></li>
                         </ul>
                     </div>
