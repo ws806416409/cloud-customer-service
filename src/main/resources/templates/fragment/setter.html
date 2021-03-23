@@ -19,21 +19,11 @@
                         </ul>
                     </span>
                     <span class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">团队设置
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" th:href="@{/notice/noticeset}" class="abc">通告设置</a></li>
-                            <li><a href="#" class="abc">操作设置</a></li>
-                            <li><a href="#" class="abc">操作日志</a></li>
-                        </ul>
-                    </span>
-                    <span class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">客服设置
                             <span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                            <li><a href="#" th:href="@{/notice/noticeset}">通告设置</a></li>
-                            <li><a href="#" class="abc">操作设置</a></li>
-                            <li><a href="#"class="abc">操作日志</a></li>
+                            <li><a href="#" th:href="@{/roleManage/index}">职务管理</a></li>
+                            <li><a href="/customerService/info" class="abc">修改客服资料</a></li>
                         </ul>
                     </span>
                     <span class="dropdown">
@@ -41,13 +31,11 @@
                             <span class="caret"></span></button>
                         <ul class="dropdown-menu">
                             <li><a href="#" th:href="@{/notice/noticeset}" class="abc">通告设置</a></li>
-                            <li><a href="#">操作设置</a></li>
-                            <li><a href="#">操作日志</a></li>
+                            <li><a href="#" th:href="@{/workOrder/index}">工单设置</a></li>
+                            <li><a href="#" th:href="@{/customerInfo/add}">客户设置</a></li>
                         </ul>
                     </span>
                 </div>
-
-
 
             </div>
         </div>
