@@ -42,7 +42,7 @@
                     <div class="page-header">
                         <div class="page-title">
                             <ol class="breadcrumb text-right">
-                                <li><a href="#">首页</a></li>
+                                <li><a href="/index">控制台</a></li>
                                 <li class="active">会话</li>
                             </ol>
                         </div>
@@ -148,7 +148,7 @@
                                         <aside class="col-lg-7"
                                                style="background-color: #f0f0f0; height: 60%; width: 100%; border-radius: 8px; margin: auto">
                                             <!--会话组件-->
-                                            <h3 style="text-align: center">客户名</h3>
+                                            <h3 style="text-align: center" th:text="${csInfo.getRealname()}">客户名</h3>
                                             <div style="background-color: #ffffff; height: 600px; width: 90%; border-radius: 8px; margin: auto">
                                                 <div class="lite-chatbox">
                                                     <li class="cleft cmsg">
@@ -182,7 +182,8 @@
                                                         style="background-color: #f0f0f0; height: 300px; width: 90%;border: 10px hidden #f0f0f0; border-radius: 5px; margin: auto"
                                                 >
                                                     <div class="form-group">
-                                                        <label for="textarea" class="">客服Id：客服名</label>
+                                                        <label for="textarea" class="">客服名：</label>
+                                                        <label for="textarea" class="" th:text="${session.cs.getNickname()}">客服名</label>
                                                         <textarea
                                                                 id="textarea" name="content"
                                                                 style="width: 100%; position: center; border-radius: 8px; resize: none"
