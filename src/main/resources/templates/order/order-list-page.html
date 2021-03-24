@@ -133,7 +133,7 @@
                             <td th:text="${order.updatetime}">`updateTime`</td>
                             <td>
                               <span
-                                ><a href="" th:href="@{/workOrder/findById(id=${order.id})}"
+                                ><a href="" th:href="@{/workOrder/findById(id=${order.getCustomerid()})}"
                                   ><i class="ti-eye color-default"></i
                                 ></a>
                               </span>

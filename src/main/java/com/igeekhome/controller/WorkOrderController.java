@@ -4,6 +4,7 @@ package com.igeekhome.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.igeekhome.biz.IWorkOrderService;
+import com.igeekhome.dao.WorkOrderMapper;
 import com.igeekhome.pojo.Session;
 import com.igeekhome.pojo.WorkOrder;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +21,9 @@ import javax.servlet.http.HttpSession;
 import java.sql.Wrapper;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * <p>
@@ -38,6 +41,8 @@ public class WorkOrderController {
     @Autowired
     IWorkOrderService iWorkOrderService;
 
+    WorkOrderMapper workOrderMapper;
+
     @GetMapping("/index")
     public String orderList(Model model){
         List<WorkOrder> list = iWorkOrderService.list();
@@ -54,7 +59,7 @@ public class WorkOrderController {
     @GetMapping("/findById")
     public String find(Model model, @RequestParam Integer id){
         QueryWrapper<WorkOrder> qu=new QueryWrapper<>();
-        qu.eq("id",id);
+        qu.eq("customerid",id);
         WorkOrder wo=  iWorkOrderService.getOne(qu);
         model.addAttribute("orderInfo", wo);
         return "order/page-WorkOrder";
@@ -67,8 +72,19 @@ public class WorkOrderController {
      * @return
      */
     @GetMapping("/update")
-    public String updatePage(HttpSession session, @RequestParam Integer id){
+    public String updatePage(Model model,HttpSession session, @RequestParam Integer id){
         session.setAttribute("orderId",id);
+//        List<String> typeList = workOrderMapper.selectByType("workType");
+//        System.out.println(typeList);
+        Set<String> set = new HashSet<>();
+        Set<Integer> groupSet = new HashSet<>();
+        List<WorkOrder> list = iWorkOrderService.list();
+        for(WorkOrder workOrder : list){
+            set.add(workOrder.getWorktype());
+            groupSet.add(workOrder.getCustomerservicegroupid());
+        }
+        model.addAttribute("set",set);
+        model.addAttribute("groupSet",groupSet);
         return "order/order-update";
     }
 

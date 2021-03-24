@@ -50,9 +50,7 @@
                                 <div class="form-group">
                                     <label>Class</label>
                                     <select class="form-control bg-ash border-none" name="worktype">
-                                        <option>分类一</option>
-                                        <option>分类二</option>
-                                        <option>分类三</option>
+                                        <option  th:each="each : ${set}" th:text="${each}"></option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -92,11 +90,7 @@
                                 <div class="form-group">
                                     <label>客服所在组</label>
                                     <select class="form-control bg-ash border-none" name="customerservicegroupid">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        <option th:each="num : ${groupSet}" th:text="${num}">1</option>
                                     </select>
                                 </div>
                                 <button class="btn btn-default btn-lg m-b-10 bg-warning border-none m-r-5 sbmt-btn"

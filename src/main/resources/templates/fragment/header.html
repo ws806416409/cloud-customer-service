@@ -21,7 +21,7 @@
 
                         <ul th:each="order ,rowInfo : ${session.notice}" style="border: #d70206; ">
                             <li >
-                                <a class="ab" href="#" >
+                                <a class="ab" >
                                     <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
                                     <div class="notification-content">
                                         <small class="notification-timestamp pull-right" th:text="${order.getCreatetime()}"></small>
@@ -54,17 +54,17 @@
                                 </a>
                             </li>
                             <li class="notification-unread">
-                                <a href="#">
+
                                     <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
                                     <div class="notification-content">
                                         <small class="notification-timestamp pull-right">02:34 PM</small>
                                         <div class="notification-heading">Ishrat Jahan</div>
                                         <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
                                     </div>
-                                </a>
+
                             </li>
                             <li>
-                                <a href="#">
+
                                     <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
                                     <div class="notification-content">
                                         <small class="notification-timestamp pull-right">02:34 PM</small>
@@ -74,7 +74,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+
                                     <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
                                     <div class="notification-content">
                                         <small class="notification-timestamp pull-right">02:34 PM</small>
@@ -90,7 +90,7 @@
                     </div>
                 </div>
             </li>
-            <li class="header-icon dib"><img class="avatar-img" src="assets/images/avatar/1.jpg" alt="" /> <span class="user-avatar" ><label>Saifun</label><i class="ti-angle-down f-s-10"></i></span>
+            <li class="header-icon dib"><img class="avatar-img" src="assets/images/avatar/1.jpg" alt="" /> <span class="user-avatar" ><label th:text="${session.cs.getRealname()}">Saifun</label><i class="ti-angle-down f-s-10"></i></span>
                 <div class="drop-down dropdown-profile">
                     <div class="dropdown-content-heading">
                         <span class="text-left">Upgrade Now</span>
