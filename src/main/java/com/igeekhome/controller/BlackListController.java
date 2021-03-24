@@ -3,6 +3,8 @@ package com.igeekhome.controller;
 
 import com.igeekhome.biz.IBlackListService;
 import com.igeekhome.pojo.BlackList;
+import com.igeekhome.pojo.CustomerService;
+import com.igeekhome.pojo.Session;
 import com.igeekhome.pojo.WorkLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -37,8 +41,15 @@ public class BlackListController {
     }
 
     @RequestMapping("/add")
-    public String addBL(@RequestParam Integer id){
-        return "blackList/black-list";
+    public String addBL(@RequestParam Integer id, HttpSession session){
+        BlackList blackList = new BlackList();
+        blackList.setCustomerid(id);
+        CustomerService cs = (CustomerService) session.getAttribute("cs");
+        blackList.setCustomerserviceid(cs.getCustomerserviceid());
+        LocalDateTime localDateTime = LocalDateTime.now();
+        blackList.setTime(localDateTime);
+        blackListService.save(blackList);
+        return "redirect:/blackList/index";
     }
 
 }
