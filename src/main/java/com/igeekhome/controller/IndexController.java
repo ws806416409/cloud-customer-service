@@ -29,6 +29,7 @@ public class IndexController {
         model.addAttribute("monitoring",list);
         return "index";
     }
+
     //退出
     @RequestMapping("/exit")
     public String exit(HttpSession session)

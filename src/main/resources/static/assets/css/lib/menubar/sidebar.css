@@ -80,7 +80,7 @@
 .sidebar .nano-content > ul li > a {
     display: block;
     cursor: pointer;
-    color: #878787;
+    color: #000000;
     padding: 10px;
     line-height: 20px;
     border-bottom: none;

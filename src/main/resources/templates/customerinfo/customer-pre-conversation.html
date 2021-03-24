@@ -236,8 +236,8 @@
                                                     <th style="text-align: center">满意度</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody th:each="x, rowInfo : ${list}">
-                                                <tr>
+                                                <tbody>
+                                                <tr  th:each="x, rowInfo : ${list}">
                                                     <td style="text-align: center" th:text="${startTime[rowInfo.count]}">Tiger Nixon</td>
                                                     <td style="text-align: center" th:text="${nickName[rowInfo.count]}">System Architect</td>
                                                     <td style="text-align: center" th:text="${group[rowInfo.count]}">Edinburgh</td>

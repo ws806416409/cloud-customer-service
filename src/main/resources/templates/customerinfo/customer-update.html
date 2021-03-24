@@ -206,9 +206,7 @@
                                     <div class="form-group">
                                         <label>客户等级</label>
                                         <select class="form-control bg-ash border-none" name="level" th:attr="value=${csInfo.level}">
-                                            <option>潜在客户</option>
-                                            <option>普通客户</option>
-                                            <option>VIP客户</option>
+                                            <option  th:each="x:${level}" th:text="${x}"></option>
                                         </select>
                                     </div>
                                 </div>
@@ -217,8 +215,7 @@
                                     <div class="form-group">
                                         <label>状态</label>
                                         <select class="form-control bg-ash border-none" name="state" th:attr="value=${csInfo.state}">
-                                            <option>在线</option>
-                                            <option>离线</option>
+                                            <option th:each="x:${state}" th:text="${x}"></option>
                                         </select>
                                     </div>
                                 </div>

@@ -14,12 +14,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * <p>
@@ -63,13 +66,33 @@ public class CustomerInfoController {
      * 添加客户信息：GetMapping发送请求，PostMapping处理请求
      * */
     @GetMapping("/add")
-    public String index_add(){
+    public String index_add(Model model){
+
+        List<CustomerInfo> list = this.customerInfoService.list();
+        //从后台获取客户的多个等级，并去重
+        Set<String> level = new HashSet<>();
+        for(CustomerInfo x : list){
+           level.add(x.getLevel());
+        }
+        System.out.println("等级的个数  " + level.size());
+
+        //从后台获取客户的多个状态，并去重
+        Set<String> state = new HashSet<>();
+        for(CustomerInfo x : list){
+            state.add(x.getState());
+        }
+        model.addAttribute("state",state);
+        model.addAttribute("level",level);
+
         return "/customerinfo/customer-add";
     }
     @PostMapping("/add")
     public String add(CustomerInfo customerInfo, Model model){
 
-
+        if(customerInfo.getLevel()=="")
+            customerInfo.setLevel(null);
+        if(customerInfo.getCustomername()=="")
+            customerInfo.setCustomername(null);
         this.customerInfoService.save(customerInfo);
         List<CustomerInfo> list = this.customerInfoService.list();
         model.addAttribute("list",list);
@@ -85,6 +108,21 @@ public class CustomerInfoController {
 
         customerInfo = this.customerInfoService.getById(customerInfo.getId());
         model.addAttribute("csInfo",customerInfo);
+
+        List<CustomerInfo> list = this.customerInfoService.list();
+        //从后台获取客户的多个状态，并去重
+        Set<String> state = new HashSet<>();
+        for(CustomerInfo x : list){
+            state.add(x.getState());
+        }
+        //从后台获取客户的多个等级，并去重
+        Set<String> level = new HashSet<>();
+        for(CustomerInfo x : list){
+            level.add(x.getLevel());
+        }
+
+        model.addAttribute("level",level);
+        model.addAttribute("state",state);
         return "/customerinfo/customer-update";
     }
 
@@ -211,6 +249,19 @@ public class CustomerInfoController {
         model.addAttribute("nickName",nickName);
         //model.addAttribute("time",time);
         return "/customerinfo/customer-black-record";
+    }
+
+
+    @RequestMapping("/chart")
+    public String chartTotal(){
+        return "/customerinfo/chart";
+    }
+
+    @ResponseBody
+    @RequestMapping("/prochart")
+    public List<CustomerInfo> chart(){
+       List<CustomerInfo> list = this.customerInfoService.list();
+       return list;
     }
 }
 
