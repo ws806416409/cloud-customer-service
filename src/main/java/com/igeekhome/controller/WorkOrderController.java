@@ -59,7 +59,7 @@ public class WorkOrderController {
     @GetMapping("/findById")
     public String find(Model model, @RequestParam Integer id){
         QueryWrapper<WorkOrder> qu=new QueryWrapper<>();
-        qu.eq("customerid",id);
+        qu.eq("id",id);
         WorkOrder wo=  iWorkOrderService.getOne(qu);
         model.addAttribute("orderInfo", wo);
         return "order/page-WorkOrder";

@@ -1,6 +1,7 @@
 package com.igeekhome.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.igeekhome.biz.IAttendanceStatisticsService;
 import com.igeekhome.biz.IWorkQualityStatisticsService;
 import com.igeekhome.biz.IWorkloadStatisticsService;
@@ -49,12 +50,22 @@ public class ViewStatisticsController {
     }
 
     @RequestMapping("/workQuality")
-    public String workQuality(Model model){       //工作质量统计
+    public String workQuality(Model model,WorkQualityStatistics workQualityStatistics){       //工作质量统计
 
-        List<WorkQualityStatistics> list = iWorkQualityStatisticsService.list();
+        List<WorkQualityStatistics> list = iWorkQualityStatisticsService.list();//查询所有的数据
         model.addAttribute("workQu",list);
         return "page-data/jobQuality";
     }
+
+//    @ResponseBody
+//    @RequestMapping("/getWorkQu")
+//    public WorkQualityStatistics getWorkQu(Model model,WorkQualityStatistics workQualityStatistics)
+//    {
+//        int iwork = workQualityStatistics.getId();//根据ID查找一条工作质量的数据
+//        WorkQualityStatistics workQualityStatistics1 = this.iWorkQualityStatisticsService.getById(iwork);
+//        return workQualityStatistics1;
+//    }
+
 
     @RequestMapping("/attendance")
     public String attendance(HttpSession httpSession,Model model){         //考勤
@@ -73,6 +84,15 @@ public class ViewStatisticsController {
         List<AttendanceStatistics> list = iAttendanceStatisticsService.list();
         model.addAttribute("attend",list);
 
+        return list;
+    }
+
+    @ResponseBody
+    @RequestMapping("/workQualityChart")
+    public List<WorkQualityStatistics> workQualityChart(Model model,HttpSession httpSession){       //工作质量统计
+
+        List<WorkQualityStatistics> list = iWorkQualityStatisticsService.list();//查询所有的数据
+        model.addAttribute("workQuChart",list);
         return list;
     }
 

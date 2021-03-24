@@ -25,7 +25,7 @@
                     <div class="page-header">
                         <div class="page-title">
                             <ol class="breadcrumb text-right">
-                                <li><a href="/index">首页</a></li>
+                                <li><a href="#">首页</a></li>
                                 <li class="active">工作量统计</li>
                             </ol>
                         </div>
@@ -40,14 +40,6 @@
                         <div class="card alert">
                             <div class="card-header">
                                 <h4>工作量统计</h4>
-                                <div class="card-header-right-icon">
-                                    <ul>
-                                        <li class="card-close" data-dismiss="alert">
-                                            <i class="ti-close"></i>
-                                        </li>
-
-                                    </ul>
-                                </div>
                             </div>
                             <div class="bootstrap-data-table-panel">
                                 <div class="table-responsive">
@@ -55,7 +47,7 @@
                                             id="row-select"
                                             class="display table table-borderd table-hover">
                                         <thead>
-                                        <tr>
+                                        <tr style="background: deepskyblue">
                                             <th>ID</th>
                                             <th>昵称</th>
                                             <th>消息数</th>
@@ -68,13 +60,13 @@
 
                                         <tbody>
                                         <tr th:each="order : ${work}">
-                                            <td th:text="${order.getId()}">`id`</td>
-                                            <td th:text="${order.getNickname()}">`title`</td>
-                                            <td th:text="${order.getTotalmessagecount()}">`workType`</td>
-                                            <td th:text="${order.getTotalsessioncount()}">`customerId`</td>
-                                            <td th:text="${order.getTotaleffectivesessioncount()}">`customerServiceId`</td>
-                                            <td th:text="${order.getTotalendsessioncount()}">`priority`</td>
-                                            <td th:text="${order.getTotalsessiontime()}">`createTime`</td>
+                                            <td th:text="${order.getId()}" style="background: lavender">`id`</td>
+                                            <td th:text="${order.getNickname()}" style="background: lightyellow">`title`</td>
+                                            <td th:text="${order.getTotalmessagecount()}" style="background: lavender">`workType`</td>
+                                            <td th:text="${order.getTotalsessioncount()}" style="background: lightyellow">`customerId`</td>
+                                            <td th:text="${order.getTotaleffectivesessioncount()}" style="background: lavender">`customerServiceId`</td>
+                                            <td th:text="${order.getTotalendsessioncount()}" style="background: lightyellow">`priority`</td>
+                                            <td th:text="${order.getTotalsessiontime()}" style="background: lavender">`createTime`</td>
                                         </tr>
 
                                         </tbody>
