@@ -23,8 +23,8 @@
                     <div class="page-header">
                         <div class="page-title">
                             <ol class="breadcrumb text-right">
-                                <li><a href="/index">首页</a></li>
-                                <li class="active">用户管理</li>
+                                <li><a href="/index">控制台</a></li>
+                                <li class="active">历史会话</li>
                             </ol>
                         </div>
                     </div>
@@ -43,73 +43,38 @@
                                         <li class="card-close" data-dismiss="alert">
                                             <i class="ti-close"></i>
                                         </li>
-
+                                        <li class="doc-link">
+                                            <a href="#"><i class="ti-link"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
-
-
-<!--                            <div class="dt-buttons">-->
-<!--                                <a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="bootstrap-data-table-export" href="#"><span>Copy</span></a>-->
-<!--                                <a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="bootstrap-data-table-export" href="#"><span>CSV</span></a>-->
-<!--                                <a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="bootstrap-data-table-export" href="#"><span>Excel</span></a>-->
-<!--                                <a class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="bootstrap-data-table-export" href="#"><span>PDF</span></a>-->
-<!--                                <a class="dt-button buttons-print" tabindex="0" aria-controls="bootstrap-data-table-export" href="#"><span>Print</span></a>-->
-<!--                            </div>-->
-
 
                             <div class="bootstrap-data-table-panel">
                                 <div class="table-responsive">
                                     <table
                                             id="row-select"
                                             class="table table-striped"
-
                                     >
                                         <thead>
                                         <tr>
-                                            <th>Id</th>
-                                            <th>客户名称</th>
-                                            <th>真实姓名</th>
-                                            <th>级别</th>
-                                            <th>公司</th>
-                                            <th>客服Id</th>
-                                            <th>状态</th>
-                                            <th>标注</th>
-                                            <th>操作</th>
+                                            <th>会话id</th>
+                                            <th>访问者</th>
+                                            <th>客服id</th>
+                                            <th>满意度</th>
+                                            <th>评价</th>
                                         </tr>
                                         </thead>
 
                                         <tbody>
-                                        <tr th:each="csInfo, rowInfo : ${list}">
-                                            <td th:text="${csInfo.getId()}"></td>
-                                            <td th:text="${csInfo.getCustomername()}">
-                                            <td th:text="${csInfo.getRealname()}"></td>
-                                            <td th:text="${csInfo.getLevel()}"></td>
-                                            <td th:text="${csInfo.getCompany()}"></td>
-                                            <td th:text="${csInfo.getCustomerserviceid()}"></td>
-                                            <td th:text="${csInfo.getState()}"></td>
-                                            <td th:text="${csInfo.getRemark()}"></td>
-                                            <td>
-                                                <span>
-                                                    <a th:href="@{/customerInfo/details(id=${csInfo.id})}"><i class="ti-eye color-default"></i></a>
-                                                </span>
-                                                <span>
-                                                      <a th:href="@{/customerInfo/update(id=${csInfo.id})}"><i class="ti-pencil-alt color-success"></i></a>
-                                                </span>
-                                                <span>
-                                                      <a th:href="@{/customerInfo/delete(id=${csInfo.id})}"><i class="ti-trash color-danger"></i> </a>
-                                                </span>
-                                            </td>
+                                        <tr th:each="x : ${list}">
+                                            <td th:text="${x.getSessionid()}"></td>
+                                            <td th:text="${x.getVisitername()}"></td>
+                                            <td th:text="${x.getCustomerserviceid()}"></td>
+                                            <td th:text="${x.getEvaluation()}"></td>
+                                            <td th:text="${x.getEvaluationdetail()}"></td>
                                         </tr>
                                         </tbody>
-<!--                                        <tfoot>-->
-<!--                                        <tr>-->
-<!--                                            <th>客服Id</th>-->
-<!--                                            <th>状态</th>-->
-<!--                                            <th>标注</th>-->
-<!--                                            <th>公司</th>-->
-<!--                                        </tr>-->
-<!--                                        </tfoot>-->
                                     </table>
                                 </div>
                             </div>
