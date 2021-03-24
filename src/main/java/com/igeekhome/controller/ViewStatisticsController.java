@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -62,6 +63,17 @@ public class ViewStatisticsController {
         model.addAttribute("attend",list);
 
         return "page-data/page-attendance";
+    }
+
+
+    @ResponseBody
+    @RequestMapping("/chart")
+    public List<AttendanceStatistics> chart(HttpSession httpSession,Model model){         //考勤
+
+        List<AttendanceStatistics> list = iAttendanceStatisticsService.list();
+        model.addAttribute("attend",list);
+
+        return list;
     }
 
 

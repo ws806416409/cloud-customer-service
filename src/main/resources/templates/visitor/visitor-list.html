@@ -45,9 +45,7 @@
                                         <li class="card-close" data-dismiss="alert">
                                             <i class="ti-close"></i>
                                         </li>
-                                        <li class="doc-link">
-                                            <a href="#"><i class="ti-link"></i></a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -69,21 +67,22 @@
                                             <th style="background: #1da1f2"><font color="white">状态</font></th>
                                             <th style="background: #1da1f2"><font color="white">访问时长</font></th>
                                             <th style="background: #1da1f2"><font color="white">访问时间</font></th>
+
                                         </tr>
                                         </thead>
 
                                         <tbody>
                                         <tr th:each="visitor : ${VisitorList}">
-                                            <td th:text="${visitor.ip}">`ip`</td>
-                                            <td th:text="${visitor.visitorname}">`visitorName`</td>
-                                            <td th:text="${visitor.terminal}">`terminal`</td>
-                                            <td th:text="${visitor.browser}">`browser`</td>
-                                            <td th:text="${visitor.screensize}">`screenSize`</td>
-                                            <td th:text="${visitor.device}">`device`</td>
-                                            <td th:text="${visitor.customerserviceid}">`customerServiceId`</td>
-                                            <td th:text="${visitor.state}">`state`</td>
-                                            <td th:text="${visitor.visitduration}">`visitDuration`</td>
-                                            <td th:text="${visitor.visittime}">`visitTime`</td>
+                                            <td th:text="${visitor.ip}" style="background: #91f4dc">`ip`</td>
+                                            <td th:text="${visitor.visitorname}" style="background: #FFE3FB">`visitorName`</td>
+                                            <td th:text="${visitor.terminal}" style="background: #91f4dc">`terminal`</td>
+                                            <td th:text="${visitor.browser}" style="background: #3affff">`browser`</td>
+                                            <td th:text="${visitor.screensize}" style="background: #FFE3FB">`screenSize`</td>
+                                            <td th:text="${visitor.device}" style="background: #91f4dc">`device`</td>
+                                            <td th:text="${visitor.customerserviceid}" style="background: #FFE3FB">`customerServiceId`</td>
+                                            <td th:text="${visitor.state}" style="background: #91f4dc">`state`</td>
+                                            <td th:text="${visitor.visitduration}" style="background: #FFE3FB">`visitDuration`</td>
+                                            <td th:text="${visitor.visittime}" style="background: #3affff">`visitTime`</td>
 
                                         </tr>
 

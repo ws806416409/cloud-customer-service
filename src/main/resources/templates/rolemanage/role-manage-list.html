@@ -47,9 +47,7 @@
                                         <li class="card-close" data-dismiss="alert">
                                             <i class="ti-close"></i>
                                         </li>
-                                        <li class="doc-link">
-                                            <a href="#"><i class="ti-link"></i></a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -74,12 +72,12 @@
 
                                         <tbody>
                                         <tr th:each="rolemanage : ${RoleManageList}">
-                                            <td th:text="${rolemanage.roleid}">`roleId`</td>
-                                            <td th:text="${rolemanage.rolename}">`roleName`</td>
-                                            <td th:text="${rolemanage.rolecount}">`roleCount`</td>
-                                            <td th:text="${rolemanage.createtime}">`createTime`</td>
-                                            <td th:text="${rolemanage.roledesc}">`roleDesc`</td>
-                                            <td th:text="${rolemanage.power}">`power`</td>
+                                            <td th:text="${rolemanage.roleid}" style="background: #91f4dc">`roleId`</td>
+                                            <td th:text="${rolemanage.rolename}" style="background: #FFE3FB">`roleName`</td>
+                                            <td th:text="${rolemanage.rolecount}" style="background: #91f4dc">`roleCount`</td>
+                                            <td th:text="${rolemanage.createtime}" style="background: #FFE3FB">`createTime`</td>
+                                            <td th:text="${rolemanage.roledesc}" style="background: #91f4dc">`roleDesc`</td>
+                                            <td th:text="${rolemanage.power}" style="background: #FFE3FB">`power`</td>
 
                                             <td>
 
@@ -99,16 +97,16 @@
                                         </tr>
 
                                         </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <th>职务Id</th>
-                                        <th>职务名称</th>
-                                        <th>人员数量</th>
-                                        <th>创建时间</th>
-                                        <th>职务描述</th>
-                                        <th>权限</th>
-                                    </tr>
-                                    </tfoot>
+                                        <tfoot>
+                                        <tr>
+                                            <th>职务Id</th>
+                                            <th>职务名称</th>
+                                            <th>人员数量</th>
+                                            <th>创建时间</th>
+                                            <th>职务描述</th>
+                                            <th>权限</th>
+                                        </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>

@@ -6,7 +6,7 @@
         <div class="nano-content">
             <ul>
                 <li class="label">Main</li>
-                <li class="active" ><a th:href="@{/index}"  style="background-color:transparent; "><i class="ti-home"></i> 控制台</a>
+                <li class="active" ><a   th:href="@{/index}"  style="background-color:transparent; "><i class="ti-home"></i> 控制台</a>
                 </li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>角色管理 <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
@@ -27,7 +27,9 @@
                 <li style="background-color:transparent;"><a class="sidebar-sub-toggle"><i class="ti-layout-grid4-alt"></i> 工单管理 <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
                         <li><a href="order-list-page.html" th:href="@{/workOrder/index}">工单列表</a></li>
+                        <li><a href="order-list-page.html" th:href="@{/workOrder/add}">添加工单</a></li>
                     </ul>
+
                 </li>
 
                 <li><a class="sidebar-sub-toggle"><i class="ti-target"></i> 客户管理 <span class="sidebar-collapse-icon ti-angle-down"></span></a>

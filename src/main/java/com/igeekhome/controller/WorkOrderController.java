@@ -107,6 +107,10 @@ public class WorkOrderController {
         return "redirect:/workOrder/index";
     }
 
+    @GetMapping("/add")
+    public String add(){
+        return "order/order-add-page";
+    }
 
     @PostMapping("/add")
     public String addOrder(WorkOrder workOrder, Model model){
