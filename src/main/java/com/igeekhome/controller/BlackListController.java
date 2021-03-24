@@ -1,10 +1,18 @@
 package com.igeekhome.controller;
 
 
+import com.igeekhome.biz.IBlackListService;
+import com.igeekhome.pojo.BlackList;
+import com.igeekhome.pojo.WorkLog;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 /**
  * <p>
@@ -18,9 +26,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/blackList")
 public class BlackListController {
 
+    @Autowired
+    IBlackListService blackListService;
+
+    @GetMapping("/index")
+    public String blist(Model model){
+        List<BlackList> list = blackListService.list();
+        model.addAttribute("blist",list);
+        return "blackList/black-list";
+    }
+
     @RequestMapping("/add")
     public String addBL(@RequestParam Integer id){
-        return "index";
+        return "blackList/black-list";
     }
 
 }
