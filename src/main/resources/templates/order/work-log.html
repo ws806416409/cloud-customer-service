@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<head th:replace="fragment/head.html::head(~{::title})"><title>客户列表</title></head>
+<head th:replace="fragment/head.html::head(~{::title})">
+    <title>订单列表</title>
+</head>
 
 <body>
 <div th:replace="fragment/sidebar.html::sidebar"></div>
+
 <div th:replace="fragment/header.html::header"></div>
 
 <div class="content-wrap">
@@ -23,8 +25,8 @@
                     <div class="page-header">
                         <div class="page-title">
                             <ol class="breadcrumb text-right">
-                                <li><a href="/index">首页</a></li>
-                                <li class="active">用户管理</li>
+                                <li><a href="#" th:href="@{/index}">首页</a></li>
+                                <li class="active">操作日志</li>
                             </ol>
                         </div>
                     </div>
@@ -37,7 +39,7 @@
                     <div class="col-lg-12">
                         <div class="card alert">
                             <div class="card-header">
-                                <h4>用户管理</h4>
+                                <h4>操作日志</h4>
                                 <div class="card-header-right-icon">
                                     <ul>
                                         <li class="card-close" data-dismiss="alert">
@@ -47,17 +49,6 @@
                                     </ul>
                                 </div>
                             </div>
-
-
-<!--                            <div class="dt-buttons">-->
-<!--                                <a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="bootstrap-data-table-export" href="#"><span>Copy</span></a>-->
-<!--                                <a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="bootstrap-data-table-export" href="#"><span>CSV</span></a>-->
-<!--                                <a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="bootstrap-data-table-export" href="#"><span>Excel</span></a>-->
-<!--                                <a class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="bootstrap-data-table-export" href="#"><span>PDF</span></a>-->
-<!--                                <a class="dt-button buttons-print" tabindex="0" aria-controls="bootstrap-data-table-export" href="#"><span>Print</span></a>-->
-<!--                            </div>-->
-
-
                             <div class="bootstrap-data-table-panel">
                                 <div class="table-responsive">
                                     <table
@@ -66,52 +57,33 @@
                                     >
                                         <thead>
                                         <tr>
-                                            <th>Id</th>
-                                            <th>客户名称</th>
-                                            <th>真实姓名</th>
-                                            <th>级别</th>
-                                            <th>公司</th>
-                                            <th>客服Id</th>
-                                            <th>状态</th>
-                                            <th>标注</th>
-                                            <th>操作</th>
+                                            <th>操作人员</th>
+                                            <th>操作类别</th>
+                                            <th>工单编号</th>
+                                            <th>操作时间</th>
+                                            <th>IP</th>
                                         </tr>
                                         </thead>
 
                                         <tbody>
-                                        <tr th:each="csInfo, rowInfo : ${list}">
-                                            <td th:text="${csInfo.getId()}"></td>
-                                            <td th:text="${csInfo.getCustomername()}">
-                                            <td th:text="${csInfo.getRealname()}"></td>
-                                            <td th:text="${csInfo.getLevel()}"></td>
-                                            <td th:text="${csInfo.getCompany()}"></td>
-                                            <td th:text="${csInfo.getCustomerserviceid()}"></td>
-                                            <td th:text="${csInfo.getState()}"></td>
-                                            <td th:text="${csInfo.getRemark()}"></td>
-                                            <td>
-                                                <span>
-                                                      <a th:href="@{/sessionMessage/enter(id=${csInfo.id})}"><i class="ti-email color-info"></i> </a>
-                                                </span>
-                                                <span>
-                                                    <a th:href="@{/customerInfo/details(id=${csInfo.id})}"><i class="ti-eye color-default"></i></a>
-                                                </span>
-                                                <span>
-                                                      <a th:href="@{/customerInfo/update(id=${csInfo.id})}"><i class="ti-pencil-alt color-success"></i></a>
-                                                </span>
-                                                <span>
-                                                      <a th:href="@{/customerInfo/delete(id=${csInfo.id})}"><i class="ti-trash color-danger"></i> </a>
-                                                </span>
-                                            </td>
+                                        <tr th:each="log : ${logs}">
+                                            <td th:text="${log.getOperateperson()}"></td>
+                                            <td th:text="${log.getOperatoraction()}"></td>
+                                            <td th:text="${log.getOperatorclass()}"></td>
+                                            <td th:text="${log.getOperatortime()}"></td>
+                                            <td th:text="${log.getOperatorip()}"></td>
                                         </tr>
+
                                         </tbody>
-<!--                                        <tfoot>-->
-<!--                                        <tr>-->
-<!--                                            <th>客服Id</th>-->
-<!--                                            <th>状态</th>-->
-<!--                                            <th>标注</th>-->
-<!--                                            <th>公司</th>-->
-<!--                                        </tr>-->
-<!--                                        </tfoot>-->
+                                        <tfoot>
+                                        <tr>
+                                            <th>操作人员</th>
+                                            <th>操作类别</th>
+                                            <th>工单编号</th>
+                                            <th>操作时间</th>
+                                            <th>IP</th>
+                                        </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>

@@ -20,7 +20,8 @@ public class IndexController {
     @RequestMapping({"/","/login"})  //当地址栏目为　http://localhost:80/   时，到棕登录页
     public String index()
     {
-        return "page-login";
+         return "page-login";
+
     }
     @GetMapping("/index")
     public String main(HttpSession session, Model model){
